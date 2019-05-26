@@ -13,8 +13,10 @@ $conf['show_tech_info'] = true;
 // it. Determines whether the program should show technical info.
 
 $conf['blockpage_url'] = "blockpage";
-// In most cases this does not have to be changed. Only change it if your
-// blockpage resides in a subpath which is not "blockpage"
+// The URL (not directory) of your blockpage. Setting this incorrectly can
+// lead to SSL certificate SAN errors, which prompt the user that the
+// connection is "not secure." It's highly reccomended that you change this.
+// Example: "https://example.com/blockpage/"
 
 $conf['unblock_url'] = "unblock-exec";
 // In most cases this does not have to be changed. Only change it if your
@@ -22,6 +24,7 @@ $conf['unblock_url'] = "unblock-exec";
 
 $conf['safeurl'] = "about:home";
 // Enter a URL of your choice to go to when a user clicks "back to safety"
+// This should not be a directory.
 
 $conf['adminemail'] = "";
 // Your email. Used when a user requests a permanent unblock.
