@@ -1,17 +1,9 @@
 <?php
-// VARIABLES TO CHANGE
-$showtechinfo = true; // Show technical info. Should usually be set to true.
-$safeurl = "about:home"; // "Back to safety" URL
-$adminemail = ""; // Email of the administrator. Example: "john@gmail.com"
-$timezone = date_default_timezone_set("America/New_York"); // TimeZone - Format "Region/Location"
-$date = date('m/d/Y h:i:s a', time()); // Format of the time. No need to change.
-$GLOBALS['unblock_seconds'] = 300; // Amount of time (in seconds) for a temporary unblock to last.
-$GLOBALS['time_friendly'] = "5 minutes"; // The "english" version of saying how many seconds. Example: 300 unblock seconds = 5 minutes.
-$unblock_url = "unblock-exec"; // Location of your unblock directory.
+require('../config.php');
 
-// There is no need to change variables below this line.
-// --------------------------
-// TechInfo variables
+$safeurl = $conf['safeurl'];
+$adminemail = $conf['adminemail'];
+
 $hostname = gethostname();
 $server_ip = $_SERVER['SERVER_ADDR']; 
 $pipass_v = "1.1 (non-production)";
@@ -101,21 +93,23 @@ EOL;
             <h4 class="alert-heading"><i style="margin-right:1%;" class="fas fa-shield-alt"></i>Webpage Blocked</h4>
             <p>This website has been previously determined as a cybersecurity threat (e.g. phishing, malware) or a web tracking software and has been blocked. Sites such as advertising networks and scams may also be blocked, so it's in your best interest to avoid these blocked sites.</p>
                 If you feel like this block has been made in error, select "Bypass Temporarily" below. If the block is causing recurring problems, select "Request Permanent Unblock" below. 
-                The bypass temporarily function is automated. The unblock will last for 2 hours, then revert to blocked. You may need to flush your DNS cache and/or <a href="https://kb.iu.edu/d/ahic">your browser's cache.</a>
+                The bypass temporarily function is automated. The unblock will last for <?php echo $conf['time_friendly']; ?>, then revert to blocked. You may need to flush your DNS cache and/or <a href="https://kb.iu.edu/d/ahic">your browser's cache.</a>
                 Otherwise, we suggest you do not visit this website.
             <br />
             <br />
             <strong>Blacklisted URL: </strong><?php if($url_provided) { echo $url; } else { echo "Unknown"; } ?>
             <hr>
             <button onclick='window.location="<?php echo $safeurl; ?>";' type="button" class="btn btn-success btn-lg btn-block">Back to Safety</button>
-            <button onclick='window.location="mailto:<?php echo $adminemail; ?>?Subject=Unblock%20Request";' type="button" class="btn btn-primary btn-lg btn-block">Request Permanent Unblock</button>
-            <form action="<?php echo $unblock_url; ?>">
+            <button onclick='window.location="mailto:<?php echo $adminurl; ?>?Subject=Unblock%20Request";' type="button" class="btn btn-primary btn-lg btn-block">Request Permanent Unblock</button>
+            <form action="<?php echo $conf['unblock_url']; ?>">
               <input type="hidden" name="url" value="<?php echo $url; ?>">
               <input type="hidden" name="unblock" value="true">
               <button style="margin-top:1%;" type="submit" class="btn btn-warning btn-lg btn-block">Unblock Temporarily</button>
             </form>
             <?php
-                    if($showtechinfo == true) {
+                    $date = $conf['date'];
+
+                    if($conf['show_tech_info'] == true) {
                       echo <<<EOL
                       <br />
                       <br />

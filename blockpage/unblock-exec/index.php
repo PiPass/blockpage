@@ -1,15 +1,6 @@
 <?php
-// VARIABLES TO CHANGE
-$showtechinfo = true; // Show technical info. Should usually be set to true.
-$timezone = date_default_timezone_set("America/New_York"); // TimeZone - Format "Region/Location"
-$date = date('m/d/Y h:i:s a', time()); // Format of the time. No need to change.
-$GLOBALS['unblock_seconds'] = 300; // Amount of time (in seconds) for a temporary unblock to last.
-$GLOBALS['time_friendly'] = "5 minutes"; // The "english" version of saying how many seconds. Example: 300 unblock seconds = 5 minutes.
+require('../../config.php');
 
-// There is no need to change variables below this line.
-// --------------------------
-
-// TechInfo variables
 $hostname = gethostname();
 $server_ip = $_SERVER['SERVER_ADDR']; 
 $pipass_v = "1.1 (non-production)";
@@ -100,7 +91,7 @@ EOL;
 EOL;
         }
       } else {
-        $localTimeFriendly = $GLOBALS['time_friendly'];
+        $localTimeFriendly = $conf['time_friendly'];
         echo <<<EOL
         <div class="alert alert-info" id="alert" role="alert">
         <h4 class="alert-heading"><i style="margin-right:1%;" class="fas fa-check"></i>Webpage Unblocked</h4>
@@ -108,7 +99,7 @@ EOL;
         <br />
         <strong>If you are still unable to visit the webpage,</strong> try flushing your computer's DNS cache or clearing your browser's cache.
 EOL;
-        if($showtechinfo == true) {
+        if($conf['show_tech_info'] == true) {
           echo <<<EOL
           <br />
           <br />
@@ -188,7 +179,7 @@ EOL;
 
 
       // Build command to schedule removal from P-H whitelist. Sleep x = sleep for x number of seconds. 300 = 5 minutes.
-      $rmWhitelistComm = "( sleep ".$GLOBALS['unblock_seconds']."; sudo pihole -w -d ".$GLOBALS['url']." & ) > /dev/null &";
+      $rmWhitelistComm = "( sleep ".$conf['unblock_seconds']."; sudo pihole -w -d ".$GLOBALS['url']." & ) > /dev/null &";
 
       // Execute P-H whitelist add command
       exec($addWhitelistComm);

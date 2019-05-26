@@ -1,12 +1,11 @@
 <?php
-// VARIABLES TO CHANGE
-$blockpage_url = ""; // The URL of your blockpage. Example: "https://192.168.2.3/blockpage/"
+require('config.php');
 
-// There is no need to change variables below this line.
-// --------------------------
 $url =  "{$_SERVER['HTTP_HOST']}";
+$bpLocal = $conf['blockpage_url'];
+
 echo <<<EOL
-<form action="$blockpage_url" method="post" id="urlpass">
+<form action="$bpLocal" method="post" id="urlpass">
     <input type="hidden" name="url" value="$url">
 </form>
 <script>
