@@ -77,22 +77,14 @@ function install() {
         echo "[ - ] It looks like there are index files in your webroot. Such as index.php, index.html, etc. Please remove them or change their name to continue installation.\n";
         exit;
     }
-    
-    echo "[ + ] Webroot folder is ready for installation. Ready to go? [y/n]";
-    $handle = fopen ("php://stdin","r");
-    $line = fgets($handle);
-    if(trim($line) != "y") {
-        echo "[ - ] Installation aborted by user.\n"
-        exit;
-    }
-    exec("cd $drf_local");
+
     echo "[ + ] In document root... downloading files.\n";
-    exec("sudo git clone https://github.com/roenw/pipass.git/ && cd pipass");
+    exec("cd $drf_local && sudo git clone https://github.com/roenw/pipass.git/");
     echo "[ + ] Files downloaded. Selecting version v1.2b\n";
-    exec("sudo git checkout tags/v1.2b");
+    exec("cd $drf_local/pipass && sudo git checkout tags/v1.2b");
     echo "[ + ] Selected version v1.2b\n";
     echo "[ + ] Moving all files up a directory...\n";
-    exec("cd .. && sudo mv pipass/* .");
+    exec("cd $drf_local && sudo mv pipass/* .");
     echo "[ + ] Success.\n";
     echo "[ + ] Installation complete. Please set your webserver to redirect all 404 pages to the homepage (web root). This function is not automated yet.\n";
     echo "[ + ] NOTE: Make sure you fill out config.php or you will get stuck in a redirect loop!\n";
