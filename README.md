@@ -61,6 +61,14 @@ You can now test the configuration so far. Go to a website you know is blocked. 
 
 6. Using your favorite text editor, edit ``config.php`` with appropriate information.
 
+7. It works! (Hopefully)
+
+
+Support
+------
+Having problems? [Let me know.](https://github.com/roenw/PiPass/issues)
+
+Pull requests are welcome!
 
 Known Caveats
 ------
@@ -68,6 +76,7 @@ Known Caveats
 * Requires webroot index
 * Requires end-user to (sometimes) clear their DNS cache
 * Configuration is not automated
+* Does not work on websites with HSTS header cached :(
 
 
 Future Ideas
