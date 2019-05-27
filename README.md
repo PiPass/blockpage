@@ -35,7 +35,7 @@ I use nginx, so this code is verified working:
 ```
         location / {
             try_files $uri $uri/ =404;
-		    error_page 404 =200 http://$host;
+            error_page 404 =200 http://$host;
         }
 ```
 
