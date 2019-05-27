@@ -1,6 +1,7 @@
 <?php
 require('../../config.php');
 
+$GLOBALS['unblockTimeSec'] = $conf['unblock_seconds'];
 $hostname = gethostname();
 $server_ip = $_SERVER['SERVER_ADDR']; 
 $pipass_v = "1.1 (non-production)";
@@ -134,7 +135,7 @@ EOL;
               <strong class="mr-auto">PiPass</strong>
             </div>
             <div class="toast-body">
-              Success! The page has been unblocked and the block will be reinstated in approximately <?php echo $GLOBALS['time_friendly'] ?>. You can trigger another unblock at that time if necessary.
+              Success! The page has been unblocked and the block will be reinstated in approximately <?php echo $conf['time_friendly'] ?>. You can trigger another unblock at that time if necessary.
             </div>
           </div>
         </div>
@@ -173,13 +174,14 @@ EOL;
 EOL;
     }
     function unblock() {
+
       // Build command to add to P-H whitelist
       // $addWhitelistComm = "pihole -w " .$GLOBALS['url'];
       $addWhitelistComm = "sudo pihole -w ".$GLOBALS['url']." > /dev/null &";
 
 
       // Build command to schedule removal from P-H whitelist. Sleep x = sleep for x number of seconds. 300 = 5 minutes.
-      $rmWhitelistComm = "( sleep ".$conf['unblock_seconds']."; sudo pihole -w -d ".$GLOBALS['url']." & ) > /dev/null &";
+      $rmWhitelistComm = "( sleep ".$GLOBALS['unblockTimeSec']."; sudo pihole -w -d ".$GLOBALS['url']." & ) > /dev/null &";
 
       // Execute P-H whitelist add command
       exec($addWhitelistComm);

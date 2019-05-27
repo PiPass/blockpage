@@ -5,7 +5,7 @@ $url =  "{$_SERVER['HTTP_HOST']}";
 $bpLocal = $conf['blockpage_url'];
 
 echo <<<EOL
-<form action="$bpLocal" method="post" id="urlpass">
+<form action="$bpLocal" method="get" id="urlpass">
     <input type="hidden" name="url" value="$url">
 </form>
 <script>

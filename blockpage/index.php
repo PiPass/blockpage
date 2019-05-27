@@ -8,9 +8,9 @@ $hostname = gethostname();
 $server_ip = $_SERVER['SERVER_ADDR']; 
 $pipass_v = "1.1 (non-production)";
 
-if(isset($_POST['url'])) {
-  $url = $_POST['url'];
-  $GLOBALS['url'] = $_POST['url'];
+if(isset($_GET['url'])) {
+  $url = $_GET['url'];
+  $GLOBALS['url'] = $_GET['url'];
   $url_provided = true;
 } else {
   $url_provided = false;
@@ -70,7 +70,7 @@ if($url == $server_ip) {
     <?php
     // Unblocking function
 
-    if(isset($_POST['unblock'])) {
+    if(isset($_GET['unblock'])) {
       unblock();
     }
 
