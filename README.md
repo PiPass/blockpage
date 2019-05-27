@@ -43,7 +43,7 @@ Install
 
 For lighttpd, use ``server.error-handler-404 = "/index.php"`` (this is untested, but should work)
 
-2. Execute ``cd ~ && wget https://apps.roen.us/pipass/getuser && mv getuser getuser.php && https://apps.roen.us/pipass/setup && mv setup setup.php`` to download the setup script and rename it.
+2. Execute ``cd ~ && wget https://apps.roen.us/pipass/getuser && mv getuser getuser.php && wget https://apps.roen.us/pipass/setup && mv setup setup.php`` to download the setup script and rename it.
 
 3. Execute ``sudo php setup.php`` to execute the setup script.
 
