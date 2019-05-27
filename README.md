@@ -1,10 +1,21 @@
 # PiPass
+[![Maintainability](https://api.codeclimate.com/v1/badges/9d4a537646feea510ddf/maintainability)](https://codeclimate.com/github/roenw/PiPass/maintainability)
+[![GitHub tag](https://img.shields.io/github/tag/Naereen/StrapDown.js.svg)](https://github.com/roenw/pipass/tags/)
+[![GitHub pull-requests](https://img.shields.io/github/issues-pr/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/pull/)
+
 PiPass is an extention to the Pi-Hole project which adds easy temporary unblocking functionality and a visually appealing blockpage. The whole project currently is written in PHP, so it will integrate very easily with your existing Pi-Hole system. The blockpage is very easy to use, presenting three distinct options, an automated, temporary unblock button among them.
 
 <p align="center">
   <a href="https://roen.us/wp-content/uploads/2019/05/pipass-blockpage.gif"><img src="https://roen.us/wp-content/uploads/2019/05/pipass-blockpage.gif" width="75%" height="75%"></a><br/>
   <strong>PiPass blockpage</strong><br />
 </p>
+
+Contributing
+------
+Obviously, this is an open-source project. You may find problems in the code, in which I would strongly encourage you to create an issue, or if you're willing to solve it yourself, fork the repository and create a pull request. If you want a feature added, feel free to create an issue.
+
+
+A list of known caveats is at the bottom of this document. If you'd like to contribute but don't know how, check there for some ideas.
 
 Prerequisites
 ------
@@ -49,3 +60,11 @@ You can now test the configuration so far. Go to a website you know is blocked. 
 5. Now, we're at the fun part. Making sure you are still in your webroot, run ``sudo git clone https://github.com/roenw/pipass.git && cd pipass && sudo git checkout tags/v1.1 && cd .. && sudo mv pipass/* .`` This command downloads all PiPass files and moves them to your webroot.
 
 6. Using your favorite text editor, edit ``config.php`` with appropriate information.
+
+
+Known Caveats
+------
+* /etc/sudoers file must be modified
+* Requires webroot index
+* Requires end-user to (sometimes) clear their DNS cache
+* Configuration is not automated
