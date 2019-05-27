@@ -51,7 +51,7 @@ I use nginx, so this code is verified working:
         }
 ```
 
-3. We must instruct Pi-Hole to use a blockpage instead of returning ``NXDOMAIN``. Don't worry, this will still result in a blank space where advertisements should be. Using your favorite editor, edit ``cat /etc/pihole/pihole-FTL.conf`` and find the line ``BLOCKINGMODE``. Replace it with ``BLOCKINGMODE=IP`` and restart the Pi-Hole FTL service.
+3. We must instruct Pi-Hole to use a blockpage instead of returning ``NXDOMAIN``. Don't worry, this will still result in a blank space where advertisements should be. Using your favorite editor, edit ``/etc/pihole/pihole-FTL.conf`` and find the line ``BLOCKINGMODE``. Replace it with ``BLOCKINGMODE=IP`` and restart the Pi-Hole FTL service.
 
 You can now test the configuration so far. Go to a website you know is blocked. It should return the ``index`` page, or a ``404 Not Found/403 Forbidden`` error if configured correctly.
 
