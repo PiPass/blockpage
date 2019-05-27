@@ -49,5 +49,3 @@ You can now test the configuration so far. Go to a website you know is blocked. 
 5. Now, we're at the fun part. Making sure you are still in your webroot, run ``sudo git clone https://github.com/roenw/pipass.git && cd pipass && sudo git checkout tags/v1.1 && cd .. && sudo mv pipass/* .`` This command downloads all PiPass files and moves them to your webroot.
 
 6. Using your favorite text editor, edit ``config.php`` with appropriate information.
-
-6a. Optional: Run ``sudo chmod 660 config.php`` to secure your configuration file. Highly reccomended if your Pi-Hole is externally accessible.
