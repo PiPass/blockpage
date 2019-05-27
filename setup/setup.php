@@ -57,6 +57,18 @@ function install() {
     echo "[ + ] DR check succeeded, now installing PiPass... \n";
     echo "[ / ] Getting current php user...\n";
     $GLOBALS['phpuser'] = exec('php getuser.php');
+    $localPU = $GLOBALS['phpuser'];
     echo "[ + ] Current php user is " .$GLOBALS['phpuser'] .".\n";
+    echo "[ / ] Building /etc/sudoers line to add...\n";
+    $sudoersline = "$localPU ALL=(ALL) NOPASSWD: /usr/local/bin/pihole -w *, /usr/local/bin/pihole -w -d *";
+    echo "[ / ] Checking if /etc/sudoers is already set up...\n";
+    $sudoersRes = exec("sudo cat /etc/sudoers | grep /usr/local/bin/pihole");
+    if(empty($sudoersRes)) {
+        echo "[ / ] Adding line to /etc/sudoers...\n";
+        exec("echo '$sudoersline' | sudo tee -a /etc/sudoers");
+        echo "[ + ] Permissions have been set up successfully!\n";
+    } else {
+        echo "[ / ] /etc/sudoers is already set up... not performing action.\n";
+    }
 }
 ?>
