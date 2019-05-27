@@ -17,6 +17,7 @@ Prerequisites
 * SSH or direct terminal access
 * Knowledge of which user PHP is running as
 * Optional: Domain or subdomain linked to your Pi-Hole
+* SSL certificate for your Pi-Hole
 
 Install
 ------
