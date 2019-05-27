@@ -68,3 +68,9 @@ Known Caveats
 * Requires webroot index
 * Requires end-user to (sometimes) clear their DNS cache
 * Configuration is not automated
+
+
+Future Ideas
+------
+* Configuration script (maybe even an apt package?)
+* Ability to trigger permanent whitelist after password entry
