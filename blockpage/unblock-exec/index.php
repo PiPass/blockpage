@@ -4,7 +4,7 @@ require('../../config.php');
 $GLOBALS['unblockTimeSec'] = $conf['unblock_seconds'];
 $hostname = gethostname();
 $server_ip = $_SERVER['SERVER_ADDR']; 
-$pipass_v = "1.1 (non-production)";
+$pipass_v = $conf['pipass_v'];
 
 if(isset($_GET['url'])) {
   $url = $_GET['url'];
