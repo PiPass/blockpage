@@ -57,7 +57,7 @@ You can now test the configuration so far. Go to a website you know is blocked. 
 
 4. To prepare for installation, ``cd`` to your webroot folder. Make sure there are no ``index`` files and there is no folder called ``blockpage``.
 
-5. Now, we're at the fun part. Making sure you are still in your webroot, run ``sudo git clone https://github.com/roenw/pipass.git && cd pipass && sudo git checkout tags/v1.1 && cd .. && sudo mv pipass/* .`` This command downloads all PiPass files and moves them to your webroot.
+5. Now, we're at the fun part. Making sure you are still in your webroot, run ``sudo git clone https://github.com/roenw/pipass.git && cd pipass && sudo git checkout tags/v1.1b && cd .. && sudo mv pipass/* .`` This command downloads all PiPass files and moves them to your webroot.
 
 6. Using your favorite text editor, edit ``config.php`` with appropriate information.
 
