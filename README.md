@@ -32,6 +32,9 @@ Prerequisites
 
 Install
 ------
+Check out [v1.2b](https://github.com/roenw/PiPass/blob/beta/README.md#Install) as it includes an automated install script! If you still wish to install v1.1, you may by expanding the details.
+
+<details>
 Installing PiPass is straightforward and simple. It should take about 10-15 minutes. All it requires is a small change to your Pi-Hole's permissions, moving around some files, filling out a configuration file, and changing some settings with your webserver.
 1. We'll get the most difficult stuff out of the way first. Use ``sudo visudo`` to edit your ``/etc/sudoers`` file. We will use this to give PHP permission to make changes to the whitelist. Add the following line to the _bottom_ of the file. Substitute ``USER_RUNNING_PHP`` in the file with the user that is running PHP on your system.
 
@@ -57,12 +60,12 @@ You can now test the configuration so far. Go to a website you know is blocked. 
 
 4. To prepare for installation, ``cd`` to your webroot folder. Make sure there are no ``index`` files and there is no folder called ``blockpage``.
 
-5. Now, we're at the fun part. Making sure you are still in your webroot, run ``sudo git clone https://github.com/roenw/pipass.git && cd pipass && sudo git checkout tags/v1.1b && cd .. && sudo mv pipass/* . && sudo rm -r pipass/`` This command downloads all PiPass files and moves them to your webroot.
+5. Now, we're at the fun part. Making sure you are still in your webroot, run ``sudo git clone https://github.com/roenw/pipass.git && cd pipass && sudo git checkout tags/v1.1 && cd .. && sudo mv pipass/* . && sudo rm -r pipass/`` This command downloads all PiPass files and moves them to your webroot.
 
 6. Using your favorite text editor, edit ``config.php`` with appropriate information.
 
 7. It works! (Hopefully)
-
+</details>
 
 Support
 ------
