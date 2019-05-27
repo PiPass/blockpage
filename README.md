@@ -12,7 +12,7 @@ PiPass is an extention to the Pi-Hole project which adds easy temporary unblocki
 
 Contributing
 ------
-Obviously, this is an open-source project. You may find problems in the code, in which I would strongly encourage you to create an issue, or if you're willing to solve it yourself, fork the repository and create a pull request. If you want a feature added, feel free to create an issue.
+Obviously, this is an open-source project. You may find problems in the code, in which I would strongly encourage you to create an issue, or if you're willing to solve it yourself, fork the repository and create a pull request. If you want a feature added, feel free to [create an issue](https://github.com/roenw/PiPass/issues).
 
 
 A list of known caveats is at the bottom of this document. If you'd like to contribute but don't know how, check there for some ideas.
