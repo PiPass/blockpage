@@ -42,7 +42,7 @@ function preInstall() {
     $line = fgets($handle);
     if(trim($line) != "y") {
         $GLOBALS['document_root'] = trim($line);
-        echo "[ - ] DR check failed. Exiting...";
+        echo "[ - ] DR check failed. Exiting...\n";
     } else {
         if(is_dir($GLOBALS['document_root'])) {
             install();
@@ -55,5 +55,8 @@ function preInstall() {
 
 function install() {
     echo "[ + ] DR check succeeded, now installing PiPass... \n";
+    echo "[ / ] Getting current php user...\n";
+    $GLOBALS['phpuser'] = exec('php getuser.php');
+    echo "[ + ] Current php user is " .$GLOBALS['phpuser'] .".\n";
 }
 ?>
