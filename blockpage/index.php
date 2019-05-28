@@ -116,14 +116,37 @@ EOL;
                       <code style="color:gray">TECHNICAL INFO:</code>
                       <br />
                       <code style="color:gray">Reported by $hostname ($server_ip) at $date. Running PiPass version $pipass_v.</code>
-                      </div>
-EOL;
-                    } else {
-                      echo <<<EOL
-                      </div>
 EOL;
                     }
             ?>
+            <?php
+              function get_data($url) {
+                $ch = curl_init();
+                $timeout = 5;
+                curl_setopt($ch, CURLOPT_URL, $url);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+                $data = curl_exec($ch);
+                curl_close($ch);
+                return $data;
+              }
+
+              $latestVersion = get_data("https://apps.roen.us/pipass/currentversion/");
+              
+              if($latestVersion != $conf['pipass_v']) {
+                echo <<<EOL
+                <br />
+                <a href="https://github.com/roenw/pipass/releases/" class="badge badge-info">Update Available!</a>
+EOL;
+              } else {
+                echo <<<EOL
+                <br />
+                <br />
+                <code>Your PiPass installation is up-to-date.</code>
+EOL;
+              }
+            ?>
+          </div>
         </div>
     </div>
     <div aria-live="polite" aria-atomic="true" id="toastwrapper" style="position: relative; min-height: 200px;">

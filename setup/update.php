@@ -11,7 +11,7 @@ echo <<<EOL
 #       # #       #    # #    # #    # 
 #       # #       #    #  ####   ####  
 \n
-PiPass installer
+PiPass updater
 \n
 EOL;
 
@@ -45,7 +45,7 @@ function preInstall() {
         echo "[ - ] DR check failed. Exiting...\n";
     } else {
         if(is_dir($GLOBALS['document_root'])) {
-            install();
+            update();
         } else {
             echo "[ - ] DR check failed. The directory does not exist. Exiting...\n";
             exit;
@@ -53,34 +53,15 @@ function preInstall() {
     }
 }
 
-function install() {
-    echo "[ + ] DR check succeeded, now installing PiPass... \n";
-    echo "[ / ] Getting current php user...\n";
-    $GLOBALS['phpuser'] = exec('php getuser.php');
-    $localPU = $GLOBALS['phpuser'];
-    echo "[ + ] Current php user is " .$GLOBALS['phpuser'] .".\n";
-    echo "[ / ] Building /etc/sudoers line to add...\n";
-    $sudoersline = "$localPU ALL=(ALL) NOPASSWD: /usr/local/bin/pihole -w *, /usr/local/bin/pihole -w -d *";
-    echo "[ / ] Checking if /etc/sudoers is already set up...\n";
-    $sudoersRes = exec("sudo cat /etc/sudoers | grep /usr/local/bin/pihole");
-    if(empty($sudoersRes)) {
-        echo "[ / ] Adding line to /etc/sudoers...\n";
-        exec("echo '$sudoersline' | sudo tee -a /etc/sudoers");
-        echo "[ + ] Permissions have been set up successfully!\n";
-    } else {
-        echo "[ / ] /etc/sudoers is already set up... not performing action.\n";
-    }
-    echo "[ / ] Now making sure that your document root folder is clear...\n";
+function update() {
+    echo "[ + ] Backed up your config file. \n";
+    echo "[ + ] DR check succeeded, now updating PiPass... \n";
+    echo "[ + ] In document root... backing up config file.\n";
     $drf_local = $GLOBALS['document_root'];
-    $drfiles = exec("ls $drf_local | grep index");
-    if(!empty($drfiles)) {
-        echo "[ - ] It looks like there are index files in your webroot. Such as index.php, index.html, etc. Please remove them or change their name to continue installation.\n";
-        exit;
-    }
-
-    echo "[ + ] In document root... downloading files.\n";
+    exec("cd $drf_local && sudo mv config.php config.php.bak");
+    echo "[ + ] Collecting files...\n";
+    exec("cd $drf_local && sudo rm -r blockpage pipass && sudo rm index.php");
     exec("cd $drf_local && sudo git clone https://github.com/roenw/pipass.git/");
-    echo "[ + ] Files downloaded. Selecting version v1.2b\n";
     function get_data($url) {
         $ch = curl_init();
         $timeout = 5;
@@ -93,12 +74,13 @@ function install() {
       }
 
     $latestVersion = get_data("https://apps.roen.us/pipass/currentversion/");
+    echo "[ + ] Files downloaded. Selecting latest version v$latestVersion.\n";
     exec("cd $drf_local/pipass && sudo git checkout tags/v$latestVersion");
-    echo "[ + ] Selected version v1.2b\n";
+    echo "[ + ] Selected version v$latestVersion\n";
     echo "[ + ] Moving all files up a directory...\n";
     exec("cd $drf_local && sudo mv pipass/* .");
     echo "[ + ] Success.\n";
-    echo "[ + ] Installation complete. Please set your webserver to redirect all 404 pages to the homepage (web root). This function is not automated yet.\n";
+    echo "[ + ] Update complete.\n";
     echo "[ + ] NOTE: Make sure you fill out config.php or you will get stuck in a redirect loop!\n";
 }
 ?>
