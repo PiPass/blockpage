@@ -1,6 +1,6 @@
 # PiPass
 [![Maintainability](https://api.codeclimate.com/v1/badges/9d4a537646feea510ddf/maintainability)](https://codeclimate.com/github/roenw/PiPass/maintainability)
-[![GitHub tag](https://img.shields.io/github/tag/Naereen/StrapDown.js.svg)](https://github.com/roenw/PiPass/releases/tag/v1.1)
+[![GitHub tag](https://img.shields.io/github/tag/Naereen/StrapDown.js.svg)](https://github.com/roenw/PiPass/releases/tag/v1.3)
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/pull/)
 
 PiPass is an extention to the Pi-Hole project which adds easy temporary unblocking functionality and a visually appealing blockpage. The whole project currently is written in PHP, so it will integrate very easily with your existing Pi-Hole system. The blockpage is very easy to use, presenting three distinct options, an automated, temporary unblock button among them.
@@ -45,11 +45,13 @@ Install
 
 For lighttpd, use ``server.error-handler-404 = "/index.php"`` (this is untested, but should work)
 
-2. Execute ``cd ~ && wget https://apps.roen.us/pipass/getuser && mv getuser getuser.php && wget https://apps.roen.us/pipass/setup && mv setup setup.php`` to download the setup script and rename it.
+2. ``sudo nano /etc/pihole/pihole-FTL.conf``. If ``BLOCKINGMODE`` line exists, replace it with ``BLOCKINGMODE=IP``. If not, add the line.
 
-3. Execute ``sudo php setup.php`` to execute the setup script.
+3. Execute ``cd ~ && wget https://apps.roen.us/pipass/getuser && mv getuser getuser.php && wget https://apps.roen.us/pipass/setup && mv setup setup.php`` to download the setup script and rename it.
 
-4. Fill out the ``config.php`` configuration file.
+4. Execute ``sudo php setup.php`` to execute the setup script.
+
+5. Fill out the ``config.php`` configuration file.
 
 Support
 ------
@@ -68,3 +70,4 @@ Future Ideas
 ------
 * Ability to trigger permanent whitelist after password entry
 * Admin console for PiPass
+* apt repository/package
