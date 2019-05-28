@@ -32,40 +32,24 @@ Prerequisites
 
 Install
 ------
-Check out [v1.2b](https://github.com/roenw/PiPass/blob/beta/README.md#Install) as it includes an automated install script! If you still wish to install v1.1, you may by expanding the details.
+**NOTE:** Versions 1.2/1.2b and below are now deprecated due to not having automatic update checking functionality. Please update immediately by removing your current installation and following this much simpler setup guide.
 
-<details>
-Installing PiPass is straightforward and simple. It should take about 10-15 minutes. All it requires is a small change to your Pi-Hole's permissions, moving around some files, filling out a configuration file, and changing some settings with your webserver.
-1. We'll get the most difficult stuff out of the way first. Use ``sudo visudo`` to edit your ``/etc/sudoers`` file. We will use this to give PHP permission to make changes to the whitelist. Add the following line to the _bottom_ of the file. Substitute ``USER_RUNNING_PHP`` in the file with the user that is running PHP on your system.
-
-``USER_RUNNING_PHP ALL=(ALL) NOPASSWD: /usr/local/bin/pihole -w *, /usr/local/bin/pihole -w -d *``
-> The /etc/sudoers file is a critical file to the security of your Linux installation. Adding anything other than what is above can expose your system to security threats.
-2. Next, we have to tell our webserver to point all 404 erros to the homepage. It's not ideal and hopefully it can be changed in a future release, but as of now it's required for proper function. How you do this depends on your webserver. For lighttpd, comment out the existing 404 line and replace it with:
-
-``server.error-handler-404    = "/index.php"``
-
-I don't personally run lighttpd and this is untested, but it should work. Just don't be surprised if it doesn't ;)
-I use nginx, so this code is verified working:
+1. Make your webserver redirect all 404 errors to the webroot. For nginx, this is
 
 ```
         location / {
-            try_files $uri $uri/ =404;
-            error_page 404 =200 http://$host;
+                try_files $uri $uri/ =404;
+                error_page 404 =200 http://$host;
         }
 ```
 
-3. We must instruct Pi-Hole to use a blockpage instead of returning ``NXDOMAIN``. Don't worry, this will still result in a blank space where advertisements should be. Using your favorite editor, edit ``/etc/pihole/pihole-FTL.conf`` and find the line ``BLOCKINGMODE``. Replace it with ``BLOCKINGMODE=IP`` and restart the Pi-Hole FTL service.
+For lighttpd, use ``server.error-handler-404 = "/index.php"`` (this is untested, but should work)
 
-You can now test the configuration so far. Go to a website you know is blocked. It should return the ``index`` page, or a ``404 Not Found/403 Forbidden`` error if configured correctly.
+2. Execute ``cd ~ && wget https://apps.roen.us/pipass/getuser && mv getuser getuser.php && wget https://apps.roen.us/pipass/setup && mv setup setup.php`` to download the setup script and rename it.
 
-4. To prepare for installation, ``cd`` to your webroot folder. Make sure there are no ``index`` files and there is no folder called ``blockpage``.
+3. Execute ``sudo php setup.php`` to execute the setup script.
 
-5. Now, we're at the fun part. Making sure you are still in your webroot, run ``sudo git clone https://github.com/roenw/pipass.git && cd pipass && sudo git checkout tags/v1.1 && cd .. && sudo mv pipass/* . && sudo rm -r pipass/`` This command downloads all PiPass files and moves them to your webroot.
-
-6. Using your favorite text editor, edit ``config.php`` with appropriate information.
-
-7. It works! (Hopefully)
-</details>
+4. Fill out the ``config.php`` configuration file.
 
 Support
 ------
@@ -75,14 +59,12 @@ Pull requests are welcome!
 
 Known Caveats
 ------
-* /etc/sudoers file must be modified
 * Requires webroot index
 * Requires end-user to (sometimes) clear their DNS cache
-* Configuration is not automated
 * Does not work on websites with HSTS header cached :(
 
 
 Future Ideas
 ------
-* Configuration script (maybe even an apt package?)
 * Ability to trigger permanent whitelist after password entry
+* Admin console for PiPass

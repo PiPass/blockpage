@@ -43,6 +43,7 @@ $conf['time_friendly'] = "2 hours";
 // A way of saying the amount of unblock seconds in english.
 // For example, 300 seconds would equal 5 minutes.
 
-$conf['pipass_v'] = "1.1 (beta)";
-// PiPass current version.
+$conf['pipass_v'] = "1.3";
+// PiPass current version. Must be a NUMBER! Or else "update available" 
+// will be showing forever and you will get a HEADACHE trying to debug.
 ?>
