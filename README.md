@@ -1,6 +1,6 @@
 # PiPass
 [![Maintainability](https://api.codeclimate.com/v1/badges/9d4a537646feea510ddf/maintainability)](https://codeclimate.com/github/roenw/PiPass/maintainability)
-[![GitHub tag](https://img.shields.io/github/tag/Naereen/StrapDown.js.svg)](https://github.com/roenw/PiPass/releases/tag/v1.1b)
+[![GitHub tag](https://img.shields.io/github/tag/Naereen/StrapDown.js.svg)](https://github.com/roenw/PiPass/releases/tag/v1.1)
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/pull/)
 
 PiPass is an extention to the Pi-Hole project which adds easy temporary unblocking functionality and a visually appealing blockpage. The whole project currently is written in PHP, so it will integrate very easily with your existing Pi-Hole system. The blockpage is very easy to use, presenting three distinct options, an automated, temporary unblock button among them.
@@ -32,6 +32,8 @@ Prerequisites
 
 Install
 ------
+**NOTE:** Versions 1.2/1.2b and below are now deprecated due to not having automatic update checking functionality. Please update immediately by removing your current installation and following this much simpler setup guide.
+
 1. Make your webserver redirect all 404 errors to the webroot. For nginx, this is
 
 ```
