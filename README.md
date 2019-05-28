@@ -21,11 +21,11 @@ Prerequisites
 ------
 * Pi-Hole server
   * Includes webserver and PHP already installed & configured (confirmed working on PHP version 7.3)
-* Root (sudo) access to Pi-Hole
-* Git
+* SSH or direct terminal access 
+Root (sudo) access to Pi-Hole
+* Git (if this isn't installed yet, use ``sudo apt-get install wget git-core``)
+* Knowledge of location of webroot (normaly this can be found under /var/www/html/)
 * Webroot folder without any index files (e.g. no index.php/index.html/etc.)
-* Knowledge of location of webroot
-* SSH or direct terminal access
 * Knowledge of which user PHP is running as
 * Optional: Domain or subdomain linked to your Pi-Hole
 * Optional: SSL certificate for your Pi-Hole
@@ -43,7 +43,7 @@ Install
         }
 ```
 
-For lighttpd, use ``server.error-handler-404 = "/index.php"`` (this is untested, but should work)
+For lighttpd, use ``sudo nano /etc/lighttpd/lighttpd.conf``. Search for the line "server.error.handler-404" and replace this line with: ``server.error-handler-404 = "/index.php"`` (this is untested, but should work)
 
 2. ``sudo nano /etc/pihole/pihole-FTL.conf``. If ``BLOCKINGMODE`` line exists, replace it with ``BLOCKINGMODE=IP``. If not, add the line.
 
