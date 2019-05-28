@@ -54,14 +54,21 @@ function preInstall() {
 }
 
 function update() {
+
+    echo "[ / ] Your configuration file will be backed up, but other than that:\n";
+    echo "[ / ] Confirmation: ALL CHANGES MADE TO PIPASS, WHETHER COMMITTED OR NOT, WILL BE LOST IF YOU CONTINUE. CONTINUE? [y/n]\n";
+    $handle = fopen ("php://stdin","r");
+    $line = fgets($handle);
+    if(trim($line) != "y") {
+        echo "[ - ] Aborted by user.\n";
+        exit;
+    }
+
     echo "[ + ] Backed up your config file. \n";
     echo "[ + ] DR check succeeded, now updating PiPass... \n";
     echo "[ + ] In document root... backing up config file.\n";
     $drf_local = $GLOBALS['document_root'];
     exec("cd $drf_local && sudo mv config.php config.php.bak");
-    echo "[ + ] Collecting files...\n";
-    exec("cd $drf_local && sudo rm -r blockpage pipass && sudo rm index.php");
-    exec("cd $drf_local && sudo git clone https://github.com/roenw/pipass.git/");
     function get_data($url) {
         $ch = curl_init();
         $timeout = 5;
@@ -74,13 +81,12 @@ function update() {
       }
 
     $latestVersion = get_data("https://apps.roen.us/pipass/currentversion/");
-    echo "[ + ] Files downloaded. Selecting latest version v$latestVersion.\n";
-    exec("cd $drf_local/pipass && sudo git checkout tags/v$latestVersion");
+    echo "[ + ] Collecting files for latest version v$latestVersion.\n";
+    exec("cd $drf_local && sudo git fetch --all");
+    exec("cd $drf_local && git reset --hard v$latestVersion");
     echo "[ + ] Selected version v$latestVersion\n";
-    echo "[ + ] Moving all files up a directory...\n";
-    exec("cd $drf_local && sudo mv pipass/* .");
-    echo "[ + ] Success.\n";
+    echo "[ + ] Update success. You are now running PiPass v$latestVersion.\n";
     echo "[ + ] Update complete.\n";
-    echo "[ + ] NOTE: Make sure you fill out config.php or you will get stuck in a redirect loop!\n";
+    echo "[ + ] NOTE: Make sure you fill out config.php or you will get stuck in a redirect loop! You might want to merge config.php and the backup I created, config.php.bak.\n";
 }
 ?>

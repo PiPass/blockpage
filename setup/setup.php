@@ -78,9 +78,21 @@ function install() {
         exit;
     }
 
+    $drfiles = exec("ls $drf_local | grep pipass");
+    if(!empty($drfiles)) {
+        echo "[ - ] It looks like there are already pipass files in your webroot. (files containing 'pipass' in name trigger this warning)\n";
+        exit;
+    }
+
+    $drfiles = exec("ls $drf_local | grep setup");
+    if(!empty($drfiles)) {
+        echo "[ - ] It looks like there are already setup files in your webroot. (files containing 'setup' in the name trigger this warning)\n";
+        exit;
+    }
+
     echo "[ + ] In document root... downloading files.\n";
-    exec("cd $drf_local && sudo git clone https://github.com/roenw/pipass.git/");
-    echo "[ + ] Files downloaded. Selecting version v1.2b\n";
+    exec("cd $drf_local && sudo git init .");
+    exec("cd $drf_local && sudo git remote add -t \* -f origin https://github.com/roenw/pipass.git");
     function get_data($url) {
         $ch = curl_init();
         $timeout = 5;
@@ -93,11 +105,9 @@ function install() {
       }
 
     $latestVersion = get_data("https://apps.roen.us/pipass/currentversion/");
-    exec("cd $drf_local/pipass && sudo git checkout tags/v$latestVersion");
-    echo "[ + ] Selected version v1.2b\n";
-    echo "[ + ] Moving all files up a directory...\n";
-    exec("cd $drf_local && sudo mv pipass/* .");
-    echo "[ + ] Success.\n";
+    echo "[ + ] Files downloaded. Selecting version v$latestVersion\n";
+    exec("cd $drf_local && sudo git checkout tags/v$latestVersion");
+    echo "[ + ] Selected version v$latestVersion\n";
     echo "[ + ] Installation complete. Please set your webserver to redirect all 404 pages to the homepage (web root). This function is not automated yet.\n";
     echo "[ + ] NOTE: Make sure you fill out config.php or you will get stuck in a redirect loop!\n";
 }
