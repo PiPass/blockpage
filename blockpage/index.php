@@ -100,7 +100,7 @@ EOL;
             <strong>Blacklisted URL: </strong><?php if($url_provided) { echo $url; } else { echo "Unknown"; } ?>
             <hr>
             <button onclick='window.location="<?php echo $safeurl; ?>";' type="button" class="btn btn-success btn-lg btn-block">Back to Safety</button>
-            <button onclick='window.location="mailto:<?php echo $adminurl; ?>?Subject=Unblock%20Request";' type="button" class="btn btn-primary btn-lg btn-block">Request Permanent Unblock</button>
+            <button onclick='window.location="mailto:<?php echo $adminemail; ?>?Subject=Unblock%20Request";' type="button" class="btn btn-primary btn-lg btn-block">Request Permanent Unblock</button>
             <form action="<?php echo $conf['unblock_url']; ?>">
               <input type="hidden" name="url" value="<?php echo $url; ?>">
               <input type="hidden" name="unblock" value="true">
