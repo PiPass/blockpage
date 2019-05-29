@@ -36,7 +36,7 @@ $conf['blockpage_url'] = get_config('blockpage_url', "");
 // connection is "not secure." It's highly reccomended that you change this.
 // Example: "https://example.com/blockpage/"
 
-$conf['unblock_url'] = get_config('unblock-exec', "unblock-exec");
+$conf['unblock_url'] = get_config('unblock-url', "unblock-exec");
 // In most cases this does not have to be changed. Only change it if your
 // unblock page resides in a subpath which is not "unblock-exec"
 
