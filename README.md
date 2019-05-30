@@ -21,7 +21,8 @@ Prerequisites
 ------
 * Pi-Hole server
   * Includes webserver and PHP already installed & configured (confirmed working on PHP version 7.3)
-* SSH or direct terminal access 
+* SSH or direct terminal access
+* SSL certificate for your Pi-Hole (self signed is ok) 
 * PHP-CURL to check for new versions (``sudo apt update && sudo apt install php7.0-curl``)
 Root (sudo) access to Pi-Hole
 * Git (if this isn't installed yet, use ``sudo apt-get install wget git-core``)
@@ -29,7 +30,6 @@ Root (sudo) access to Pi-Hole
 * Webroot folder without any index files (e.g. no index.php/index.html/etc.)
 * Knowledge of which user PHP is running as
 * Optional: Domain or subdomain linked to your Pi-Hole
-* Optional: SSL certificate for your Pi-Hole
 
 Install
 ------
