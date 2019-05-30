@@ -56,7 +56,7 @@ function preInstall() {
 function install() {
     echo "[ + ] DR check succeeded, now installing PiPass... \n";
     echo "[ / ] Getting current php user...\n";
-    $GLOBALS['phpuser'] = exec('php getuser.php');
+    $GLOBALS['phpuser'] = get_current_user();
     $localPU = $GLOBALS['phpuser'];
     echo "[ + ] Current php user is " .$GLOBALS['phpuser'] .".\n";
     echo "[ / ] Building /etc/sudoers line to add...\n";
