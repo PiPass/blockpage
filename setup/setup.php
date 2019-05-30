@@ -107,6 +107,14 @@ function install() {
     $latestVersion = get_data("https://apps.roen.us/pipass/currentversion/");
     echo "[ + ] Files downloaded. Selecting version v$latestVersion\n";
     exec("cd $drf_local && sudo git checkout tags/v$latestVersion");
+    if ( file_exists('/etc/lighttpd/lighttpd.conf') == true ) {
+		echo "[ + ] Lighttpd web server detected. Modifying 404 redirects.\n";
+		exec('sudo sed -i /etc/lighttpd/lighttpd.conf -re \'s/(server.error-handler-404[^"]*")([^"]*)(")/\1index\.php\3/\'');
+		echo "[ + ] Modifying PiHole FTL to BLOCKINGMODE=IP\n";
+		exec('sudo sed -i \'/^BLOCKINGMODE=/{h;s/=.*/=IP/};${x;/^$/{s//BLOCKINGMODE=IP/;H};x}\' /etc/pihole/pihole-FTL.conf');
+	} else {
+		echo "[ - ] Did not detect PiHole's default webserver 'Lighttpd'. Please configure installed web server to redirect 404's to PiPass.\n";
+	}
     echo "[ + ] Selected version v$latestVersion\n";
     echo "[ + ] Installation complete. Please set your webserver to redirect all 404 pages to the homepage (web root). This function is not automated yet.\n";
     echo "[ + ] NOTE: Make sure you fill out config.php or you will get stuck in a redirect loop!\n";
