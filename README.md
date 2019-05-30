@@ -35,7 +35,11 @@ Install
 ------
 **NOTE:** Versions 1.2/1.2b and below are now deprecated due to not having automatic update checking functionality. Please update immediately by removing your current installation and following this much simpler setup guide.
 
-1. Make your webserver redirect all 404 errors to the webroot. For nginx, this is
+1. Make your webserver redirect all 404 errors to the webroot. 
+
+PiHole uses lighttpd as a webserver. To redirect, use ``sudo nano /etc/lighttpd/lighttpd.conf``. Search for the line "server.error.handler-404" and replace this line with: ``server.error-handler-404 = "/index.php"`` 
+
+For nginx, this is
 
 ```
         location / {
@@ -44,7 +48,7 @@ Install
         }
 ```
 
-For lighttpd, use ``sudo nano /etc/lighttpd/lighttpd.conf``. Search for the line "server.error.handler-404" and replace this line with: ``server.error-handler-404 = "/index.php"`` (this is untested, but should work)
+
 
 2. ``sudo nano /etc/pihole/pihole-FTL.conf``. If ``BLOCKINGMODE`` line exists, replace it with ``BLOCKINGMODE=IP``. If not, add the line.
 
