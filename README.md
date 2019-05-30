@@ -48,11 +48,9 @@ For lighttpd, use ``sudo nano /etc/lighttpd/lighttpd.conf``. Search for the line
 
 2. ``sudo nano /etc/pihole/pihole-FTL.conf``. If ``BLOCKINGMODE`` line exists, replace it with ``BLOCKINGMODE=IP``. If not, add the line.
 
-3. Execute ``cd ~ && wget https://apps.roen.us/pipass/getuser && mv getuser getuser.php && wget https://apps.roen.us/pipass/setup && mv setup setup.php`` to download the setup script and rename it.
+3. Execute ``cd ~/ && wget -O setup.php https://apps.roen.us/pipass/setup && sudo php setup.php`` to download the setup script and rename it.
 
-4. Execute ``sudo php setup.php`` to execute the setup script.
-
-5. Fill out the ``config.php`` configuration file.
+4. Fill out the ``config.php`` configuration file.
 
 Support
 ------
