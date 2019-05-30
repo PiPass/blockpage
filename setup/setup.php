@@ -72,7 +72,7 @@ function install() {
     }
     echo "[ / ] Now making sure that your document root folder is clear...\n";
     $drf_local = $GLOBALS['document_root'];
-    $drfiles = exec("ls $drf_local | grep index");
+    $drfiles = exec("ls $drf_local | grep -E 'index.html|index.php'");
     if(!empty($drfiles)) {
         echo "[ - ] It looks like there are index files in your webroot. Such as index.php, index.html, etc. Please remove them or change their name to continue installation.\n";
         exit;
