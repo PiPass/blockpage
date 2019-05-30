@@ -29,7 +29,7 @@ if (0 == posix_getuid()) {
 
 function preInstall() {
 
-    echo "[ / ] DR check... Please enter your web document root. (e.g. /var/www/)\n";
+    echo "[ / ] DR check... Please enter your web document root. (e.g. /var/www/html)\n";
     $handle = fopen ("php://stdin","r");
     $line = fgets($handle);
     if(trim($line)) {
@@ -56,7 +56,7 @@ function preInstall() {
 function install() {
     echo "[ + ] DR check succeeded, now installing PiPass... \n";
     echo "[ / ] Getting current php user...\n";
-    $GLOBALS['phpuser'] = exec('php getuser.php');
+    $GLOBALS['phpuser'] = get_current_user();
     $localPU = $GLOBALS['phpuser'];
     echo "[ + ] Current php user is " .$GLOBALS['phpuser'] .".\n";
     echo "[ / ] Building /etc/sudoers line to add...\n";
@@ -72,7 +72,7 @@ function install() {
     }
     echo "[ / ] Now making sure that your document root folder is clear...\n";
     $drf_local = $GLOBALS['document_root'];
-    $drfiles = exec("ls $drf_local | grep index");
+    $drfiles = exec("ls $drf_local | grep -E 'index.html|index.php'");
     if(!empty($drfiles)) {
         echo "[ - ] It looks like there are index files in your webroot. Such as index.php, index.html, etc. Please remove them or change their name to continue installation.\n";
         exit;
