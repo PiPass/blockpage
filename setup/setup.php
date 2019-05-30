@@ -29,7 +29,7 @@ if (0 == posix_getuid()) {
 
 function preInstall() {
 
-    echo "[ / ] DR check... Please enter your web document root. (e.g. /var/www/)\n";
+    echo "[ / ] DR check... Please enter your web document root. (e.g. /var/www/html)\n";
     $handle = fopen ("php://stdin","r");
     $line = fgets($handle);
     if(trim($line)) {
