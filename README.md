@@ -37,7 +37,7 @@ Install
 
 1. Make your webserver redirect all 404 errors to the webroot. 
 
-PiHole uses lighttpd as a webserver. To redirect, use ``sudo nano /etc/lighttpd/lighttpd.conf``. Search for the line "server.error.handler-404" and replace this line with: ``server.error-handler-404 = "/index.php"`` 
+2. PiHole uses lighttpd as a webserver by default. As such, this installer will configure 404 redirects for it by default. Other web servers will need to configure this manually.
 
 For nginx, this is
 
@@ -47,10 +47,6 @@ For nginx, this is
                 error_page 404 =200 http://$host;
         }
 ```
-
-
-
-2. ``sudo nano /etc/pihole/pihole-FTL.conf``. If ``BLOCKINGMODE`` line exists, replace it with ``BLOCKINGMODE=IP``. If not, add the line.
 
 3. Execute ``cd ~/ && wget -O setup.php https://apps.roen.us/pipass/setup && sudo php setup.php`` to download the setup script and rename it.
 
