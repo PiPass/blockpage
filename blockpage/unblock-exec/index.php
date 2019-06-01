@@ -66,11 +66,11 @@ if(isset($_GET['url'])) {
       if($_GET['unblock'] != "unblocked") {
         echo <<<EOL
         <div class="alert alert-warning" id="alert" role="alert">
-        <h4 class="alert-heading"><i style="margin-right:1%;" class="fas fa-shield-alt"></i>Unblocking Webpage</h4>
-        <p>Currently unblocking the requested page temporarily. Please wait, do <strong>not</strong> refresh the page.
+        <h4 class="alert-heading"><i style="margin-right:1%;" class="fas fa-shield-alt"></i>$unblockingStatusHeader</h4>
+        <p>$unblockingStatus</p>
         <br />
         <br />
-        <strong>Blacklisted URL: </strong>$url
+        <strong>$URLDescriptor </strong>$url
         <hr>
         <form id="intersittialUnblock" method="GET">
         <input type="hidden" name="unblockurl" value="$url">
@@ -80,13 +80,13 @@ EOL;
         
         if(isset($_GET['unblock']) || !($url_provided)) {
           echo <<<EOL
-            <button type="submit" style="display:none;" class="btn btn-warning btn-lg btn-block">Unblock Temporarily</button>
+            <button type="submit" style="display:none;" class="btn btn-warning btn-lg btn-block">$unblockTemporaryButton</button>
             </form>
           </div>
 EOL;
         } else {
           echo <<<EOL
-            <button type="submit" style="display:none;" class="btn btn-warning btn-lg btn-block">Unblock Temporarily</button>
+            <button type="submit" style="display:none;" class="btn btn-warning btn-lg btn-block">$unblockTemporaryButton</button>
             </form>
           </div>
 EOL;
@@ -94,18 +94,18 @@ EOL;
       } else {
         echo <<<EOL
         <div class="alert alert-info" id="alert" role="alert">
-        <h4 class="alert-heading"><i style="margin-right:1%;" class="fas fa-check"></i>Webpage Unblocked</h4>
-        <p>The webpage has been unblocked successfully. The website will revert to being blocked in approximately $unblockLength, after which time you may wish to trigger the unblock again.</p>
+        <h4 class="alert-heading"><i style="margin-right:1%;" class="fas fa-check"></i>$unblockedStatusHeader</h4>
+        <p>$unblockedStatus</p>
         <br />
-        <strong>If you are still unable to visit the webpage,</strong> try flushing your computer's DNS cache or clearing your browser's cache.
+        $unblockHelp
 EOL;
         if($conf['show_tech_info'] == true) {
           echo <<<EOL
           <br />
           <br />
-          <code style="color:gray">TECHNICAL INFO:</code>
+          <code style="color:gray">$technicalInfoHeader</code>
           <br />
-          <code style="color:gray">Reported by $hostname ($server_ip) at $date. Running PiPass version $pipass_v.</code>
+          <code style="color:gray">$technicalInfoMsg</code>
           </div>
 EOL;
         } else {
@@ -124,7 +124,7 @@ EOL;
               <strong class="mr-auto">PiPass</strong>
             </div>
             <div class="toast-body">
-              Requesting temporary unblock from the server. Do not reload the page, this may take a few seconds.
+              <?php echo $bpToastRequestingStatus; ?>
             </div>
           </div>
         </div>
@@ -134,7 +134,7 @@ EOL;
               <strong class="mr-auto">PiPass</strong>
             </div>
             <div class="toast-body">
-              Success! The page has been unblocked and the block will be reinstated in approximately <?php echo $unblockLength ?>. You can trigger another unblock at that time if necessary.
+            <?php echo $bpToastSuccessStatus; ?>
             </div>
           </div>
         </div>

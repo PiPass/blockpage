@@ -38,4 +38,14 @@ $technicalInfoMsg = "Reported by $hostname ($server_ip) at $date. Running PiPass
 $bpToastRequestingStatus = "Requesting temporary unblock from the server. Do not reload the page, this may take a few seconds.";
 
 $bpToastSuccessStatus = "Success! The page will be unblocked for 2 hours. Please clear your browser's cache to use the website.";
+
+$unblockingStatusHeader = "Unblocking Webpage";
+
+$unblockingStatus = "Currently unblocking the requested page temporarily. Please wait, do <strong>not</strong> refresh the page.";
+
+$unblockedStatusHeader = "Webpage Unblocked";
+
+$unblockedStatus = "The webpage has been unblocked successfully. The website will revert to being blocked in approximately $unblockLength, after which time you may wish to trigger the unblock again.";
+
+$unblockHelp = "<strong>If you are still unable to visit the webpage,</strong> try flushing your computer's DNS cache or clearing your browser's cache.";
 ?>
