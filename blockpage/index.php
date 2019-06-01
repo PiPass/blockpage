@@ -4,13 +4,6 @@ require('../config.php');
 $usrLanguage = $conf['language'];
 require("../locale/locale-$usrLanguage.php");
 
-$safeurl = $conf['safeurl'];
-$adminemail = $conf['adminemail'];
-
-$hostname = gethostname();
-$server_ip = $_SERVER['SERVER_ADDR']; 
-$pipass_v = $conf['pipass_v'];
-
 if(isset($_GET['url'])) {
   $url = $_GET['url'];
   $GLOBALS['url'] = $_GET['url'];
@@ -119,15 +112,14 @@ EOL;
               <button style="margin-top:1%;" type="submit" class="btn btn-warning btn-lg btn-block">Unblock Temporarily</button>
             </form>
             <?php
-                    $date = $conf['date'];
 
                     if($conf['show_tech_info'] == true) {
                       echo <<<EOL
                       <br />
                       <br />
-                      <code style="color:gray">TECHNICAL INFO:</code>
+                      <code style="color:gray">$technicalInfoHeader</code>
                       <br />
-                      <code style="color:gray">Reported by $hostname ($server_ip) at $date. Running PiPass version $pipass_v.</code>
+                      <code style="color:gray">$technicalInfoMsg</code>
 EOL;
                     }
             ?>
