@@ -1,6 +1,9 @@
 <?php
 require('../config.php');
 
+$usrLanguage = $conf['language'];
+require("../locale/locale-$usrLanguage.php");
+
 $safeurl = $conf['safeurl'];
 $adminemail = $conf['adminemail'];
 
@@ -103,10 +106,7 @@ EOL;
     <div class="container">
         <div class="alert alert-danger" id="alert" role="alert">
             <h4 class="alert-heading"><i style="margin-right:1%;" class="fas fa-shield-alt"></i>Webpage Blocked</h4>
-            <p>This website has been previously determined as a cybersecurity threat (e.g. phishing, malware) or a web tracking software and has been blocked. Sites such as advertising networks and scams may also be blocked, so it's in your best interest to avoid these blocked sites.</p>
-                If you feel like this block has been made in error, select "Bypass Temporarily" below. If the block is causing recurring problems, select "Request Permanent Unblock" below. 
-                The bypass temporarily function is automated. The unblock will last for <?php echo $conf['time_friendly']; ?>, then revert to blocked. You may need to flush your DNS cache and/or <a href="https://kb.iu.edu/d/ahic">your browser's cache.</a>
-                Otherwise, we suggest you do not visit this website.
+            <p><?php echo $alertMsg; ?>
             <br />
             <br />
             <strong>Blacklisted URL: </strong><?php if($url_provided) { echo $url; } else { echo "Unknown"; } ?>
