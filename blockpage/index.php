@@ -140,6 +140,7 @@ EOL;
               if($latestVersion != $conf['pipass_v']) {
                 echo <<<EOL
                 <br />
+                <br />
                 <a href="https://github.com/roenw/pipass/releases/" class="badge badge-info">$updateAvailMsg</a>
 EOL;
               } else {

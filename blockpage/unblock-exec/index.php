@@ -1,10 +1,10 @@
 <?php
 require('../../config.php');
 
+$usrLanguage = $conf['language'];
+require("../../locale/locale-$usrLanguage.php");
+
 $GLOBALS['unblockTimeSec'] = $conf['unblock_seconds'];
-$hostname = gethostname();
-$server_ip = $_SERVER['SERVER_ADDR']; 
-$pipass_v = $conf['pipass_v'];
 
 if(isset($_GET['url'])) {
   $url = $_GET['url'];
@@ -92,11 +92,10 @@ EOL;
 EOL;
         }
       } else {
-        $localTimeFriendly = $conf['time_friendly'];
         echo <<<EOL
         <div class="alert alert-info" id="alert" role="alert">
         <h4 class="alert-heading"><i style="margin-right:1%;" class="fas fa-check"></i>Webpage Unblocked</h4>
-        <p>The webpage <strong>$url</strong> has been unblocked successfully. The website will revert to being blocked in approximately $localTimeFriendly, after which time you may wish to trigger the unblock again.</p>
+        <p>The webpage has been unblocked successfully. The website will revert to being blocked in approximately $unblockLength, after which time you may wish to trigger the unblock again.</p>
         <br />
         <strong>If you are still unable to visit the webpage,</strong> try flushing your computer's DNS cache or clearing your browser's cache.
 EOL;
@@ -135,7 +134,7 @@ EOL;
               <strong class="mr-auto">PiPass</strong>
             </div>
             <div class="toast-body">
-              Success! The page has been unblocked and the block will be reinstated in approximately <?php echo $conf['time_friendly'] ?>. You can trigger another unblock at that time if necessary.
+              Success! The page has been unblocked and the block will be reinstated in approximately <?php echo $unblockLength ?>. You can trigger another unblock at that time if necessary.
             </div>
           </div>
         </div>

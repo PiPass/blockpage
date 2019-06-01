@@ -8,6 +8,7 @@ $adminemail = $conf['adminemail'];
 $unblockLength = date('H:i:s', mktime(0, 0, $conf['unblock_seconds']));
 
 // LOCALE FILE FOR LANGUAGE: "ENGLISH"
+// ------------------------------------------------
 
 $headerMsg = "Webpage Blocked";
 
