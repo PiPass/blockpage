@@ -1,5 +1,5 @@
 <?php
-echo "[ + ] Commencing uninstallation of PiPass."
+echo "[ + ] Commencing uninstallation of PiPass.";
 echo "[ + ] We're sad to see you go... please help improve this project by leaving feedback on what issues casued you to leave.";
 $GLOBALS['phpuser'] = get_current_user();
 $localPU = $GLOBALS['phpuser'];
