@@ -9,7 +9,7 @@ exec("sudo sed -ri '/$sudoersline/d' /etc/sudoers");
 
 if (file_exists('/var/www/html/blockpage')) {
 echo "[ + ] Removing PiPass files...";
-exec("cd /var/www/html && sudo rm -rf index.php config.php setup blockpage");
+exec("cd /var/www/html && sudo rm -rf index.php config.php README.md setup blockpage .git");
 }
 if (file_exists('/etc/lighttpd/lighttpd.conf.pipass.bak')) {
 echo "[ + ] Restoring backup of lighttpd.conf";
