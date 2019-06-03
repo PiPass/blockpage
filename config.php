@@ -28,7 +28,7 @@ function get_config($section, $defaultValue) {
 }
 
 $conf["language"] = get_config('language', "en");
-// Language to use in PiPass. Should be in IEFT language format.
+// Default/fallback language to use in PiPass. Should be in IEFT language format.
 
 $conf['show_tech_info'] = get_config('show_tech_info', true);
 // Should usually be set to true, unless you have specific reason to disable
