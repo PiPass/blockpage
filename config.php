@@ -27,6 +27,21 @@ function get_config($section, $defaultValue) {
   }
 }
 
+function get_language() {
+    $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+    $files = array_values(array_diff(scandir('locale'), array('..', '.')));
+    $translations = array();
+    
+    for ($i = 0; $i < count($files); $i++) {
+		$str = "$files[$i]";
+		if (preg_match('/locale-([a-z][a-z]).php/', $str, $match) == 1) {
+			$translations[] = $match[1];
+		}
+	}
+	$lang = in_array($lang, $translations) ? $lang : $conf['language'];
+	return $lang;
+}
+
 $conf["language"] = get_config('language', "en");
 // Default/fallback language to use in PiPass. Should be in IEFT language format.
 
