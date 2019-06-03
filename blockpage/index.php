@@ -1,7 +1,7 @@
 <?php
 require('../config.php');
 
-$usrLanguage = $conf['language'];
+$usrLanguage = get_language();
 require("../locale/locale-$usrLanguage.php");
 
 if(isset($_GET['url'])) {
