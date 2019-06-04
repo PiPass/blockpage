@@ -10,11 +10,11 @@ $unblockLength = date('H:i:s', mktime(0, 0, $conf['unblock_seconds']));
 // LOCALE FILE FOR LANGUAGE: "ENGLISH"
 // ------------------------------------------------
 
-$headerMsg = "Webpage Blocked";
+$headerMsg = "Spletna stran blokirana";
 
 $alertMsg = <<<EOL
-Ta spletna stran je bila označena kot škodljiva (npr. phishing, malware) oziroma kot tehnologija za sledenje po spletu in je bila zato blokirana. Tudi strani kot so oglaševalska omrežja in spletne prevare, so najverjetneje blokirane, zato priporočam, da se blokiranim spletnim stranem izogibate.
-Če ste mnenja, da je bila ta spletna stran blokirana po pomoti, spodaj izberite "Začasno omogoči". Če se težava zaradi blokirane spletne strani pogosto pojavlja, spodaj izberite "Zahtevaj trajen dostop".
+Ta spletna stran je bila označena kot škodljiva (npr. phishing, škodljiva programska oprema) oziroma kot tehnologija za sledenje po spletu in je bila zato blokirana. Tudi strani kot so oglaševalska omrežja in spletne prevare, so najverjetneje blokirane, zato priporočam, da se blokiranim spletnim stranem izogibate.
+Če ste mnenja, da je bila ta spletna stran blokirana po pomoti, spodaj izberite "Začasno omogoči". V primeru, da se težava zaradi blokirane spletne strani pogosto pojavlja, spodaj izberite "Zahtevaj trajen dostop".
 Funkcija "Začasno omogoči" je avtomatizirana. Spletna stran bo na voljo $unblockLength, nato bo spet blokirana. Po potrebi se lahko zgodi, da boste morali počistiti vaš DNS predpomnilnik in/ali predpomnilnik vašega brskalnika. Sicer, priporočamo, da ne obiščete te spletne strani.
 EOL;
 
