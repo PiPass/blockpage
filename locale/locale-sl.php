@@ -7,7 +7,7 @@ $safeurl = $conf['safeurl'];
 $adminemail = $conf['adminemail'];
 $unblockLength = date('H:i:s', mktime(0, 0, $conf['unblock_seconds']));
 
-// LOCALE FILE FOR LANGUAGE: "ENGLISH"
+// LOCALE FILE FOR LANGUAGE: "SOLVENIAN"
 // ------------------------------------------------
 
 $headerMsg = "Spletna stran blokirana";
