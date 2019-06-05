@@ -1,7 +1,7 @@
 # PiPass
 ![Maintainability](https://api.codeclimate.com/v1/badges/9d4a537646feea510ddf/maintainability)
-![version](https://img.shields.io/badge/version-1.3-blue.svg?cacheSeconds=2592000)
-![GitHub pull-requests](https://img.shields.io/github/issues-pr/Naereen/StrapDown.js.svg)
+![version](https://img.shields.io/github/release/roenw/pipass.svg?label=release)
+![GitHub pull-requests](https://img.shields.io/github/issues-pr-raw/roenw/pipass.svg?color=blue)
 
 PiPass is an extention to the Pi-Hole project which adds easy temporary unblocking functionality and a visually appealing blockpage. The whole project currently is written in PHP, so it will integrate very easily with your existing Pi-Hole system. The blockpage is very easy to use, presenting three distinct options, an automated, temporary unblock button among them.
 
