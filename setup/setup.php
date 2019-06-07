@@ -80,7 +80,7 @@ function install() {
 
     $drfiles = exec("ls $drf_local | grep pipass");
     if(!empty($drfiles)) {
-        echo "[ - ] It looks like there are already pipass files in your webroot. (files containing 'pipass' in name trigger this warning)\n";
+        echo "[ - ] It looks like there are already PiPass files in your webroot. (files containing 'pipass' in name trigger this warning)\n";
         exit;
     }
 
@@ -93,6 +93,7 @@ function install() {
     echo "[ + ] In document root... downloading files.\n";
     exec("cd $drf_local && sudo git init .");
     exec("cd $drf_local && sudo git remote add -t \* -f origin https://github.com/roenw/pipass.git");
+    exec("sudo git pull origin master");
     function get_data($url) {
         $ch = curl_init();
         $timeout = 5;
