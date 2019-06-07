@@ -110,7 +110,7 @@ function install() {
     if ( file_exists('/etc/lighttpd/lighttpd.conf') == true ) {
 		echo "[ + ] Lighttpd web server detected. Modifying 404 redirects.\n";
 		if (!file_exists('/etc/lighttpd/lighttpd.conf.pipass.bak')) {
-			echo "[ + ] No lighttpd.conf backup found for PiPass. Backing up before modifying.";
+			echo "[ + ] No lighttpd.conf backup found for PiPass. Backing up before modifying.\n";
 			exec("sudo cp /etc/lighttpd/lighttpd.conf /etc/lighttpd/lighttpd.conf.pipass.bak");
 		}
 		exec('sudo sed -i /etc/lighttpd/lighttpd.conf -re \'s/(server.error-handler-404[^"]*")([^"]*)(")/\1index\.php\3/\'');
@@ -120,12 +120,12 @@ function install() {
 	if (file_exists('/etc/pihole/pihole-FTL.conf')) {
 		echo "[ + ] Modifying PiHole FTL to BLOCKINGMODE=IP\n";
 		if (!file_exists('/etc/pihole/pihole-FTL.conf.pipass.bak')) {
-			echo "[ + ] No pihole-FTL.conf backup found for PiPass. Backing up before modifying.";
+			echo "[ + ] No pihole-FTL.conf backup found for PiPass. Backing up before modifying.\n";
 			exec("sudo cp /etc/pihole/pihole-FTL.conf /etc/pihole/pihole-FTL.conf.pipass.bak");
 		}
 		exec('sudo sed -i \'/^BLOCKINGMODE=/{h;s/=.*/=IP/};${x;/^$/{s//BLOCKINGMODE=IP/;H};x}\' /etc/pihole/pihole-FTL.conf');
 	} else {
-		echo "[ - ] Did not detect PiHole FTL.";
+		echo "[ - ] Did not detect PiHole FTL.\n";
 	}
     echo "[ + ] Selected version v$latestVersion\n";
     echo "[ + ] Installation complete. Please set your webserver to redirect all 404 pages to the homepage (web root). This function is not automated yet.\n";
