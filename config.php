@@ -34,7 +34,7 @@ $conf['show_tech_info'] = get_config('show_tech_info', true);
 // Should usually be set to true, unless you have specific reason to disable
 // it. Determines whether the program should show technical info.
 
-$conf['blockpage_url'] = get_config('blockpage_url', "index.php");
+$conf['blockpage_url'] = get_config('blockpage_url', "blockpage/index.php");
 // The URL (not directory) of your blockpage. Setting this incorrectly can
 // lead to SSL certificate SAN errors, which prompt the user that the
 // connection is "not secure." It's highly reccomended that you change this.
