@@ -129,6 +129,10 @@ function install() {
 		echo "[ - ] Did not detect PiHole FTL.\n";
 	}
     echo "[ + ] Selected version v$latestVersion\n";
+    echo "[ + ] Creating a directory for PiPass static files.\n";
+    exec('sudo mkdir /opt/pipass');
+    echo "[ + ] Initializing PiPass database...\n";
+    exec('cd /opt/pipass && sudo sqlite3 pipass-DB.db');
     echo "[ + ] Installation complete. Please set your webserver to redirect all 404 pages to the homepage (web root). This function is not automated yet.\n";
     echo "[ + ] NOTE: Make sure you fill out config.php or you will get stuck in a redirect loop!\n";
 }
