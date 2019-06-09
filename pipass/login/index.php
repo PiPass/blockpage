@@ -4,6 +4,17 @@ $dbLocation = "/opt/pipass/pipass-DB.db";
 if(!is_file($dbLocation)) {
     die("Unable to open connection to PiPass database. Perhaps you disabled the administration panel during setup or you deleted the database by accident?");
 }
+
+if(isset($_POST['username'])) {
+    if(empty($_POST['username'])) {
+        $userEmpty = true;
+    }
+
+    if(empty($_POST['password'])) {
+        $pwEmpty = true;
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,15 +35,25 @@ if(!is_file($dbLocation)) {
                         <h1>PiPass Administration Panel</h1>
                         <p><i>Please authenticate to continue.</i></p>
                         </header>
-                        <form>
+                        <form method="POST">
                         <div class="form-group">
                             <label class="sr-only" for="password">Username</label>
-                            <input type="name" class="form-control  input-lg" id="username" placeholder="Username">
+                            <input type="name" name="username" class="form-control  input-lg" id="username" placeholder="Username">
+                            <?php
+                                if($userEmpty == true) {
+                                    echo "<p style='color:red;'>Username cannot be empty.</p>";
+                                }
+                            ?>
                         </div>
                         <div class="form-group">
                             <label class="sr-only" for="password">Password
                             </label>
-                            <input type="password" class="form-control input-lg" id="password" placeholder="Password">
+                            <input type="password" name="password" class="form-control input-lg" id="password" placeholder="Password">
+                            <?php
+                                if($pwEmpty == true) {
+                                    echo "<p style='color:red;'>Password cannot be empty.</p>";
+                                }
+                            ?>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block btn-lg">Log In</button>
                         </form>
