@@ -13,24 +13,28 @@ $ini = [];
 
 // If the ini file exists, use it. If not, create an empty $ini array so
 // checks against it fail.
-if ( file_exists($ini_path) ) {
+
+if (file_exists($ini_path)) {
   $ini = parse_ini_file($ini_path);
 }
 
 function get_config($section, $defaultValue) {
   global $ini;
-  if ( array_key_exists($section , $ini) == true ) {
+  if (array_key_exists($section , $ini) == true) {
     return $ini[$section];
   } else {
     return $defaultValue;
   }
 }
 
+$conf["language"] = get_config('language', "en");
+// Language to use in PiPass. Should be in IEFT language format.
+
 $conf['show_tech_info'] = get_config('show_tech_info', true);
 // Should usually be set to true, unless you have specific reason to disable
 // it. Determines whether the program should show technical info.
 
-$conf['blockpage_url'] = get_config('blockpage_url', "index.php");
+$conf['blockpage_url'] = get_config('blockpage_url', "blockpage/index.php");
 // The URL (not directory) of your blockpage. Setting this incorrectly can
 // lead to SSL certificate SAN errors, which prompt the user that the
 // connection is "not secure." It's highly reccomended that you change this.
@@ -56,10 +60,6 @@ $conf['date'] = date(get_config('date', 'm/d/Y h:i:s a'), time());
 $conf['unblock_seconds'] = get_config('unblock_seconds', 7200);
 // How many seconds to unblock a website for when a temporary unblock is
 // executed by a user.
-
-$conf['time_friendly'] = get_config('time_friendly', "2 hours");
-// A way of saying the amount of unblock seconds in english.
-// For example, 300 seconds would equal 5 minutes.
 
 $conf['pipass_v'] = "1.3";
 // PiPass current version. Must be a NUMBER! Or else "update available" 

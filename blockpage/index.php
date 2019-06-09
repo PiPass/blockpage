@@ -1,12 +1,8 @@
 <?php
 require('../config.php');
 
-$safeurl = $conf['safeurl'];
-$adminemail = $conf['adminemail'];
-
-$hostname = gethostname();
-$server_ip = $_SERVER['SERVER_ADDR']; 
-$pipass_v = $conf['pipass_v'];
+$usrLanguage = $conf['language'];
+require("../locale/locale-$usrLanguage.php");
 
 if(isset($_GET['url'])) {
   $url = $_GET['url'];
@@ -36,7 +32,7 @@ if($url == $server_ip) {
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
-    <title>Webpage Blocked</title>
+    <title><?php echo $headerMsg; ?></title>
 
     <!--- Inline styles -->
     <style>
@@ -102,32 +98,28 @@ EOL;
   <body>
     <div class="container">
         <div class="alert alert-danger" id="alert" role="alert">
-            <h4 class="alert-heading"><i style="margin-right:1%;" class="fas fa-shield-alt"></i>Webpage Blocked</h4>
-            <p>This website has been previously determined as a cybersecurity threat (e.g. phishing, malware) or a web tracking software and has been blocked. Sites such as advertising networks and scams may also be blocked, so it's in your best interest to avoid these blocked sites.</p>
-                If you feel like this block has been made in error, select "Bypass Temporarily" below. If the block is causing recurring problems, select "Request Permanent Unblock" below. 
-                The bypass temporarily function is automated. The unblock will last for <?php echo $conf['time_friendly']; ?>, then revert to blocked. You may need to flush your DNS cache and/or <a href="https://kb.iu.edu/d/ahic">your browser's cache.</a>
-                Otherwise, we suggest you do not visit this website.
+            <h4 class="alert-heading"><i style="margin-right:1%;" class="fas fa-shield-alt"></i><?php echo $headerMsg; ?></h4>
+            <p><?php echo $alertMsg; ?>
             <br />
             <br />
-            <strong>Blacklisted URL: </strong><?php if($url_provided) { echo $url; } else { echo "Unknown"; } ?>
+            <strong><?php echo $URLDescriptor; ?> </strong><?php if($url_provided) { echo $url; } else { echo "Unknown"; } ?>
             <hr>
-            <button onclick='window.location="<?php echo $safeurl; ?>";' type="button" class="btn btn-success btn-lg btn-block">Back to Safety</button>
-            <button onclick='window.location="mailto:<?php echo $adminemail; ?>?Subject=Unblock%20Request";' type="button" class="btn btn-primary btn-lg btn-block">Request Permanent Unblock</button>
+            <button onclick='window.location="<?php echo $safeurl; ?>";' type="button" class="btn btn-success btn-lg btn-block"><?php echo $safeButton ?></button>
+            <button onclick='window.location="mailto:<?php echo $adminemail; ?>?Subject=Unblock%20Request";' type="button" class="btn btn-primary btn-lg btn-block"><?php echo $requestUnblockButton; ?></button>
             <form action="<?php echo $conf['unblock_url']; ?>">
               <input type="hidden" name="url" value="<?php echo $url; ?>">
               <input type="hidden" name="unblock" value="true">
-              <button style="margin-top:1%;" type="submit" class="btn btn-warning btn-lg btn-block">Unblock Temporarily</button>
+              <button style="margin-top:1%;" type="submit" class="btn btn-warning btn-lg btn-block"><?php echo $unblockTemporaryButton; ?></button>
             </form>
             <?php
-                    $date = $conf['date'];
 
                     if($conf['show_tech_info'] == true) {
                       echo <<<EOL
                       <br />
                       <br />
-                      <code style="color:gray">TECHNICAL INFO:</code>
+                      <code style="color:gray">$technicalInfoHeader</code>
                       <br />
-                      <code style="color:gray">Reported by $hostname ($server_ip) at $date. Running PiPass version $pipass_v.</code>
+                      <code style="color:gray">$technicalInfoMsg</code>
 EOL;
                     }
             ?>
@@ -148,13 +140,14 @@ EOL;
               if($latestVersion != $conf['pipass_v']) {
                 echo <<<EOL
                 <br />
-                <a href="https://github.com/roenw/pipass/releases/" class="badge badge-info">Update Available!</a>
+                <br />
+                <a href="https://github.com/roenw/pipass/releases/" class="badge badge-info">$updateAvailMsg</a>
 EOL;
               } else {
                 echo <<<EOL
                 <br />
                 <br />
-                <code>Your PiPass installation is up-to-date.</code>
+                <code>$upToDateMsg</code>
 EOL;
               }
             ?>
@@ -168,7 +161,7 @@ EOL;
               <strong class="mr-auto">PiPass</strong>
             </div>
             <div class="toast-body">
-              Requesting temporary unblock from the server. Do not reload the page, this may take a few seconds.
+              <?php echo $bpToastRequestingStatus; ?>
             </div>
           </div>
         </div>
@@ -178,7 +171,7 @@ EOL;
               <strong class="mr-auto">PiPass</strong>
             </div>
             <div class="toast-body">
-              Success! The page will be unblocked for 2 hours. Please clear your browser's cache to use the website.
+              <?php echo $bpToastSuccessStatus; ?>
             </div>
           </div>
         </div>
