@@ -14,20 +14,7 @@ if(isset($_POST['username'])) {
     // Fill in values on POST (login attempt) so as to avoid errors being shown unnecessarily
     // These variables will be overwritten later in the code.
 
-    $pwIncorrect = null;
-    $GLOBALS["userexists"] = null;
-
-    if(empty($_POST['username'])) {
-        $userEmpty = true;
-    } else {
-        $userEmpty = false;
-    }
-
-    if(empty($_POST['password'])) {
-        $pwEmpty = true;
-    } else {
-        $pwEmpty = false;
-    }
+    //$GLOBALS["pwIncorrect"] = null;
 
     authenticate($_POST['username'], $_POST['password']);
 }
@@ -57,13 +44,11 @@ function authenticate($username, $password) {
         $GLOBALS["userexists"] = false;
     }
 
-    echo $userPwHash;
-    echo $password;
+    $GLOBALS["pwIncorrect"] = false;
 
     if(password_verify($password, $userPwHash)) {
-        echo "Login success!";
-    } else {
-        echo "Incorrect password";
+        $_SESSION["username"] = $username;
+        header("Location: ../manage/");
     }
 }
 
@@ -91,25 +76,17 @@ function authenticate($username, $password) {
                         <div class="form-group">
                             <label class="sr-only" for="password">Username</label>
                             <input type="name" name="username" class="form-control  input-lg" id="username" placeholder="Username">
-                            <?php
-                                if($userEmpty == true) {
-                                    echo "<p style='color:red;'>Username cannot be empty.</p>";
-                                } else if($userEmpty == false) {
-                                    if($GLOBALS["userexists"] == false) {
-                                        echo "<p style='color:red;'>The user specified does not exist.</p>";
-                                    }
-                                }
-                            ?>
                         </div>
                         <div class="form-group">
                             <label class="sr-only" for="password">Password
                             </label>
                             <input type="password" name="password" class="form-control input-lg" id="password" placeholder="Password">
                             <?php
-                                if($pwEmpty == true) {
-                                    echo "<p style='color:red;'>Password cannot be empty.</p>";
-                                } else if($pwIncorrect == true) {
-                                    echo "<p style='color:red;'>Incorrect username or password.</p>";
+                                if(isset($_POST['username'])) {
+                                    if($GLOBALS["pwIncorrect"] == 1222 || empty($_POST["password"])) {
+                                        echo "PW Incorrect: ".$GLOBALS["pwIncorrect"];
+                                        echo "<p style='color:red;margin-top:2%;'>The username and password did not match. Please try again.</p>";
+                                    }
                                 }
                             ?>
                         </div>
