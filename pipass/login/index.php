@@ -1,17 +1,69 @@
 <?php
+session_start();
+
+ini_set('display_errors', 1);
 $dbLocation = "/opt/pipass/pipass-DB.db";
+
+// Check if we can connect to the database. If not, kill the program with an error message
 
 if(!is_file($dbLocation)) {
     die("Unable to open connection to PiPass database. Perhaps you disabled the administration panel during setup or you deleted the database by accident?");
 }
 
 if(isset($_POST['username'])) {
+    // Fill in values on POST (login attempt) so as to avoid errors being shown unnecessarily
+    // These variables will be overwritten later in the code.
+
+    $pwIncorrect = null;
+    $GLOBALS["userexists"] = null;
+
     if(empty($_POST['username'])) {
         $userEmpty = true;
+    } else {
+        $userEmpty = false;
     }
 
     if(empty($_POST['password'])) {
         $pwEmpty = true;
+    } else {
+        $pwEmpty = false;
+    }
+
+    authenticate($_POST['username'], $_POST['password']);
+}
+
+function authenticate($username, $password) {
+    $sqlite = new PDO('sqlite:/opt/pipass/pipass-DB.db');
+    $userInfo = $sqlite->query("SELECT * FROM USERS WHERE USERNAME = '$username'");
+    $DBQueryArray = $userInfo->fetchAll();
+
+    // DBQueryArray is an array which contains information from the PiPass Database about the user that
+    // you are trying to log in as. Below is the format for querying the database.
+
+    // $DBQueryArray[0][0]: User ID
+    // $DBQueryArray[0][1]: User's First Name
+    // $DBQueryArray[0][2]: User's Last Name
+    // $DBQueryArray[0][3]: Access Level (0: Read Only / 1: Administrator)
+    // $DBQueryArray[0][4]: Username
+    // $DBQueryArray[0][5]: Password Hash
+
+    try {
+        // Don't show a PHP warning if the PDO query fails because the user is invalid.
+        set_error_handler(function() { /* ignore errors */ });
+        $userPwHash = $DBQueryArray[0][5];
+        restore_error_handler();
+    } catch(Exception $e) {
+        // The user specified does not exist
+        $GLOBALS["userexists"] = false;
+    }
+
+    echo $userPwHash;
+    echo $password;
+
+    if(password_verify($password, $userPwHash)) {
+        echo "Login success!";
+    } else {
+        echo "Incorrect password";
     }
 }
 
@@ -42,6 +94,10 @@ if(isset($_POST['username'])) {
                             <?php
                                 if($userEmpty == true) {
                                     echo "<p style='color:red;'>Username cannot be empty.</p>";
+                                } else if($userEmpty == false) {
+                                    if($GLOBALS["userexists"] == false) {
+                                        echo "<p style='color:red;'>The user specified does not exist.</p>";
+                                    }
                                 }
                             ?>
                         </div>
@@ -52,6 +108,8 @@ if(isset($_POST['username'])) {
                             <?php
                                 if($pwEmpty == true) {
                                     echo "<p style='color:red;'>Password cannot be empty.</p>";
+                                } else if($pwIncorrect == true) {
+                                    echo "<p style='color:red;'>Incorrect username or password.</p>";
                                 }
                             ?>
                         </div>
