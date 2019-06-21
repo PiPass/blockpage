@@ -30,7 +30,7 @@ Root (sudo) access to Pi-Hole
 * Knowledge of location of webroot (normaly this can be found under /var/www/html/)
 * Webroot folder without any index files (e.g. no index.php/index.html/etc.)
 * Knowledge of which user PHP is running as
-* Optional: Domain or subdomain linked to your Pi-Hole
+* Optional, will improve functionality: Domain or subdomain linked to your Pi-Hole
 
 Install
 ------
@@ -62,12 +62,11 @@ Pull requests are welcome!
 Known Caveats
 ------
 * Requires webroot index
-* Requires end-user to (sometimes) clear their DNS cache
 * Does not work on websites with HSTS header cached :(
 
 
 Future Ideas
 ------
 * Ability to trigger permanent whitelist after password entry
-* Admin console for PiPass
-* apt repository/package
+* Admin console for PiPass (currently in the works)
+* apt repository/package and Docker image
