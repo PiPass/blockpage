@@ -61,7 +61,7 @@ $conf['unblock_seconds'] = get_config('unblock_seconds', 7200);
 // How many seconds to unblock a website for when a temporary unblock is
 // executed by a user.
 
-$conf['pipass_v'] = "1.3";
+$conf['pipass_v'] = "1.3.5";
 // PiPass current version. Must be a NUMBER! Or else "update available" 
-// will be showing forever and you will get a HEADACHE trying to debug.
+// will be showing forever
 ?>
