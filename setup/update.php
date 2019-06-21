@@ -56,7 +56,7 @@ function preInstall() {
 function update() {
 
     echo "[ / ] Your configuration file will be backed up, but other than that:\n";
-    echo "[ / ] Confirmation: ALL CHANGES MADE TO PIPASS, WHETHER COMMITTED OR NOT, WILL BE LOST IF YOU CONTINUE. CONTINUE? [y/n]\n";
+    echo "[ / ] BY UPDATING, YOUR CONFIGURATION FILES, EVEN IF STASHED OR COMMITTED, WILL BE OVERWRITTEN. CONTINUE? [y/n]\n";
     $handle = fopen ("php://stdin","r");
     $line = fgets($handle);
     if(trim($line) != "y") {
@@ -81,6 +81,14 @@ function update() {
       }
 
     $latestVersion = get_data("https://apps.roen.us/pipass/currentversion/");
+    exec("cd $drf_local && git describe --exact-match --tags $(git log -n1 --pretty='%h')", $output);
+    if("v".$latestVersion === $output[0]) {
+        echo "[ / ] Aborted by PiPass updater: You are already on the latest version of PiPass, version $output[0].\n";
+        exit;
+    } else {
+        $oldVersion = $output[0];
+        echo "Updating from $oldVersion to v$latestVersion.";
+    }
     echo "[ + ] Collecting files for latest version v$latestVersion.\n";
     exec("cd $drf_local && sudo git fetch --all");
     exec("cd $drf_local && git reset --hard v$latestVersion");
