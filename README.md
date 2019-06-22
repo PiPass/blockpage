@@ -34,13 +34,13 @@ Root (sudo) access to Pi-Hole
 
 Install
 ------
-**NOTE:** Versions 1.2/1.2b and below are now deprecated due to not having automatic update checking functionality. Please update immediately by removing your current installation and following this much simpler setup guide.
+Installation on a vanilla Pi-Hole is completely automated. Execute ``bash <(wget -qO- https://kubrick.roen.us/pipass/scripts/install.sh)`` to install.
 
-1. Make your webserver redirect all 404 errors to the webroot. 
+If you have a more complex installation (e.g. using ``NGiNX`` as a webserver), follow these steps below.
 
-2. PiHole uses lighttpd as a webserver by default. As such, this installer will configure 404 redirects for it by default. Other web servers will need to configure this manually.
+1. Make your webserver redirect all 404 errors to the webroot. If you use ``lighttpd``, this function is automated.
 
-For nginx, this is
+For ``NGiNX``, this is
 
 ```
         location / {
@@ -49,9 +49,9 @@ For nginx, this is
         }
 ```
 
-3. Execute ``cd ~/ && wget -O setup.php https://apps.roen.us/pipass/setup && sudo php setup.php`` to download the setup script and rename it.
+3. ``bash <(wget -qO- https://kubrick.roen.us/pipass/scripts/install.sh)`` - You may be prompted for elevated permissions using ``sudo``.
 
-4. Fill out the ``config.php`` configuration file.
+4. Optional: fill out the ``config.php`` configuration file.
 
 Support
 ------
