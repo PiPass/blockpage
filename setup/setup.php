@@ -120,6 +120,5 @@ function install() {
     echo "Removed redundant files.";
 
     echo "\033[01;32m\n Installation complete. \033[0m\n";
-    echo "NOTE: Make sure you fill out config.php or you will get stuck in a redirect loop!\n";
 }
 ?>

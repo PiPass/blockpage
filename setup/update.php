@@ -78,6 +78,6 @@ function update() {
     echo "Merging local changes with latest version (using git merge) \n";
     exec("cd $drf_local && git merge origin/master v$latestVersion");
     echo "Merged local changes.\n";
-    echo "\033[01;32m\n Update successful! You are now running PiPass v$latestVersion. Please check that your installation is working,then feel free to discard the backup (.bak) files.\033[0m\n";
+    echo "\033[01;32m\n Update successful! You are now running PiPass v$latestVersion.\033[0m\n";
 }
 ?>
