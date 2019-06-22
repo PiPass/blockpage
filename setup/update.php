@@ -17,19 +17,19 @@ EOL;
 
 sleep(5);
 
-echo "[ / ] Root user check...\n";
+echo "Root user check...\n";
 
 if (0 == posix_getuid()) {
-    echo "[ + ] Root user check complete\n";
+    echo "Root user check complete\n";
     preInstall();
 } else {
-    echo "[ X ] Root user check failed. Please run the script with sudo.\n";
+    echo "\033[01;31m\n FATAL: Root user check failed. Please run the script again with sudo.\033[0m\n";
     exit;
 }
 
 function preInstall() {
 
-    echo "[ / ] DR check... Please enter your web document root. (e.g. /var/www/)\n";
+    echo "Please enter your web document root. (e.g. /var/www/html)\n";
     $handle = fopen ("php://stdin","r");
     $line = fgets($handle);
     if(trim($line)) {
@@ -37,29 +37,28 @@ function preInstall() {
     }
 
     
-    echo "[ / ] Is this the correct document root? (" .$GLOBALS['document_root'] .") [y/n]\n";
+    echo "Confirmation: Is this the correct document root? (" .$GLOBALS['document_root'] .") [y/n]\n";
     $handle = fopen ("php://stdin","r");
     $line = fgets($handle);
     if(trim($line) != "y") {
         $GLOBALS['document_root'] = trim($line);
-        echo "[ - ] DR check failed. Exiting...\n";
+        echo "\033[01;33m\n WARN: User aborted. Exiting... \033[0m\n";
     } else {
         if(is_dir($GLOBALS['document_root'])) {
             update();
         } else {
-            echo "[ - ] DR check failed. The directory does not exist. Exiting...\n";
+            echo "\033[01;31m\n FATAL: The directory does not exist. Exiting...\033[0m\n";
             exit;
         }
     }
 }
 
 function update() {
-    echo "[ + ] DR check succeeded, now updating PiPass... \n";
-    echo "[ + ] In document root... backing up config file.\n";
+    echo "DR check succeeded, now updating PiPass... \n";
     $drf_local = $GLOBALS['document_root'];
     exec("cd $drf_local && sudo cp config.php config.php.bak > /dev/null 2>&1 &");
 
-    echo "[ + ] Backed up your config file. \n";
+    echo "Attempted to back up your config file. \n";
 
     function get_data($url) {
         $ch = curl_init();
@@ -74,10 +73,11 @@ function update() {
 
     $latestVersion = get_data("https://apps.roen.us/pipass/currentversion/");
 
-    echo "[ + ] Collecting files for latest version v$latestVersion.\n";
+    echo "Collecting files for latest version v$latestVersion.\n";
     exec("cd $drf_local && sudo git fetch origin");
-    echo "[ + ] Merging local changes with latest version (merge/rebase) \n";
+    echo "Merging local changes with latest version (using git merge) \n";
     exec("cd $drf_local && git merge origin/master v$latestVersion");
-    echo "[ + ] Update successful! You are now running PiPass v$latestVersion. Please check that your installation is working,then feel free to discard the backup (.bak) files.";
+    echo "Merged local changes.\n";
+    echo "\033[01;32m\n Update successful! You are now running PiPass v$latestVersion. Please check that your installation is working,then feel free to discard the backup (.bak) files.\033[0m\n";
 }
 ?>
