@@ -1,5 +1,5 @@
 # PiPass
-![Maintainability](https://api.codeclimate.com/v1/badges/9d4a537646feea510ddf/maintainability)
+<a href="https://codeclimate.com/github/roenw/PiPass/issues">![Maintainability](https://api.codeclimate.com/v1/badges/9d4a537646feea510ddf/maintainability)</a>
 ![version](https://img.shields.io/github/release/roenw/pipass.svg?label=release)
 ![GitHub pull-requests](https://img.shields.io/github/issues-pr-raw/roenw/pipass.svg?color=blue)
 ![GitHub pull-requests](https://img.shields.io/github/issues-raw/roenw/pipass.svg?color=red)
