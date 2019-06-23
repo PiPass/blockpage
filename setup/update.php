@@ -85,6 +85,7 @@ function update() {
     exec('git config user.email "pipass@example.com"');
     exec('git config user.name "PiPass User"');
     echo "Stashing your local changes for reapplication after update.\n";
+    exec("cd $drf_local && sudo git add *");
     exec("cd $drf_local && sudo git stash");
     echo "Merging local changes with latest version (using git merge) \n";
     exec("cd $drf_local && sudo git merge origin/master v$latestVersion");
