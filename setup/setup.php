@@ -116,7 +116,7 @@ function install() {
 	}
     echo "Selected version v$latestVersion\n";
 
-    exec("cd $drf_local && sudo rm -r README.md setup ");
+    exec("cd $drf_local && sudo rm -r README.md setup docs mkdocs.yml");
     echo "Removed redundant files.";
 
     echo "\033[01;32m\n Installation complete. \033[0m\n";
