@@ -81,6 +81,9 @@ function update() {
 
     echo "Collecting files for latest version v$latestVersion.\n";
     exec("cd $drf_local && sudo git fetch origin");
+    echo "Configuring local git profile";
+    exec('git config user.email "pipass@example.com"');
+    exec('git config user.name "PiPass User"');
     echo "Stashing your local changes for reapplication after update.\n";
     exec("cd $drf_local && sudo git stash")
     echo "Merging local changes with latest version (using git merge) \n";
