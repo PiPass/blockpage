@@ -82,7 +82,7 @@ function update() {
     echo "Collecting files for latest version v$latestVersion.\n";
     exec("cd $drf_local && sudo git fetch origin");
     echo "Stashing your local changes for reapplication after update.\n";
-    exec("cd $drf_local && sudo git stash")
+    exec("cd $drf_local && sudo git stash");
     echo "Merging local changes with latest version (using git merge) \n";
     exec("cd $drf_local && sudo git merge origin/master v$latestVersion");
     echo "Restoring local changes into updated files.\n";
