@@ -45,7 +45,11 @@ function preInstall() {
         echo "\033[01;33m\n WARN: User aborted. Exiting... \033[0m\n";
     } else {
         if(is_dir($GLOBALS['document_root'])) {
-            update();
+            if(is_dir($GLOBALS['document_root']."/blockpage")) {
+                update();
+            } else {
+                echo "\033[01;31m\n FATAL: Unable to detect your PiPass installation. Is it corrupt?\033[0m\n";
+            }
         } else {
             echo "\033[01;31m\n FATAL: The directory does not exist. Exiting...\033[0m\n";
             exit;
@@ -54,6 +58,8 @@ function preInstall() {
 }
 
 function update() {
+
+
     echo "DR check succeeded, now updating PiPass... \n";
     $drf_local = $GLOBALS['document_root'];
     exec("cd $drf_local && sudo cp config.php config.php.bak > /dev/null 2>&1 &");

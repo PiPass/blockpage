@@ -93,7 +93,7 @@ function uninstall() {
         exec("sudo mv /etc/pihole/pihole-FTL.conf.pipass.bak /etc/pihole/pihole-FTL.conf");
     }
 
-    echo "\033[01;32m\nPiPass has been fully uninstalled and all files have been cleaned up and removed.\033[0m\n";
+    echo "\033[01;32m\nPiPass has been completely removed from your system.\033[0m\n";
     echo "\nIf you don't mind, please tell us what made you uninstall by creating a new issue on our GitHub, roenw/PiPass.\n";
 }
 ?>
