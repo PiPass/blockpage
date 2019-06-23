@@ -73,7 +73,7 @@ function uninstall() {
 
     if (file_exists("$drf_local/blockpage")) {
         echo "Removing PiPass files...\n";
-        exec("cd $drf_local && sudo rm -rf index.php config.php README.md setup blockpage .git");
+        exec("cd $drf_local && sudo rm -rf index.php config.php README.md setup blockpage locale .git");
     }
     if (file_exists('/etc/lighttpd/lighttpd.conf.pipass.bak')) {
         echo "Restoring backup of lighttpd.conf\n";
