@@ -81,8 +81,12 @@ function update() {
 
     echo "Collecting files for latest version v$latestVersion.\n";
     exec("cd $drf_local && sudo git fetch origin");
+    echo "Stashing your local changes for reapplication after update.\n";
+    exec("cd $drf_local && sudo git stash")
     echo "Merging local changes with latest version (using git merge) \n";
-    exec("cd $drf_local && git merge origin/master v$latestVersion");
+    exec("cd $drf_local && sudo git merge origin/master v$latestVersion");
+    echo "Restoring local changes into updated files.\n";
+    exec("cd $drf_local && sudo git stash pop");
     echo "Merged local changes.\n";
     echo "\033[01;32m\n Update successful! You are now running PiPass v$latestVersion.\033[0m\n";
 }
