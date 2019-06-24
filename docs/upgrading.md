@@ -1,6 +1,6 @@
 # Upgrading
 
-Upgrading your PiPass installation is a relatively easy process and will take 2 to 5 minutes depending on your experience with Linux and the ``git`` version-control system. Bear in mind that the update command will **break** your PiPass installation until you complete the upgrade process. This Wiki article will guide you through that whole process.
+Upgrading your PiPass installation is a relatively easy process and will take 2 to 5 minutes depending on your experience with Linux and the ``git`` version-control system. Bear in mind that if you are upgrading from version 1.3 or lower, the update command will **break** your PiPass installation until you complete the upgrade process. This Wiki article will guide you through that whole process.
 
 ## Beginning the Upgrade
 
@@ -12,7 +12,7 @@ Now, let's see if we are done. Execute this following command: ``cat /var/www/co
 
 #### If there is no output returned
 
-This is unlikely, but you are probably done with the upgrade. Head to the blockpage and make sure it's intact. If the blockpage is not showing up, run ``git diff --name-only --diff-filter=U | grep --invert-match setup/`` and follow the directions listed below on the files listed.
+Lucky you! There were no conflicts, and you are probably done with the upgrade. Head to the blockpage and make sure it's intact. If the blockpage is not showing up, run ``git diff --name-only --diff-filter=U | grep --invert-match setup/`` and follow the directions listed below on the files listed.
 
 #### If there is an output returned
 
