@@ -421,13 +421,13 @@
                 
                 
                 <h1 id="upgrading">Upgrading</h1>
-<p>Upgrading your PiPass installation is a relatively easy process and will take 2 to 5 minutes depending on your experience with Linux and the <code>git</code> version-control system. Bear in mind that the update command will <strong>break</strong> your PiPass installation until you complete the upgrade process. This Wiki article will guide you through that whole process.</p>
+<p>Upgrading your PiPass installation is a relatively easy process and will take 2 to 5 minutes depending on your experience with Linux and the <code>git</code> version-control system. Bear in mind that if you are upgrading from version 1.3 or lower, the update command will <strong>break</strong> your PiPass installation until you complete the upgrade process. This Wiki article will guide you through that whole process.</p>
 <h2 id="beginning-the-upgrade">Beginning the Upgrade</h2>
 <p>First, start by initiating the upgrade. Execute <code>bash &lt;(wget -qO- https://kubrick.roen.us/pipass/scripts/install.sh)</code> and answer the prompts.</p>
 <h3 id="checking-for-conflicts">Checking for Conflicts</h3>
 <p>Now, let's see if we are done. Execute this following command: <code>cat /var/www/config.php | grep \&lt;\&lt;</code></p>
 <h4 id="if-there-is-no-output-returned">If there is no output returned</h4>
-<p>This is unlikely, but you are probably done with the upgrade. Head to the blockpage and make sure it's intact. If the blockpage is not showing up, run <code>git diff --name-only --diff-filter=U | grep --invert-match setup/</code> and follow the directions listed below on the files listed.</p>
+<p>Lucky you! There were no conflicts, and you are probably done with the upgrade. Head to the blockpage and make sure it's intact. If the blockpage is not showing up, run <code>git diff --name-only --diff-filter=U | grep --invert-match setup/</code> and follow the directions listed below on the files listed.</p>
 <h4 id="if-there-is-an-output-returned">If there is an output returned</h4>
 <p>If the command <em>does return an output:</em> it's likely that we've encountered a merge conflict. To someone who hasn't had a lot of experience with <code>git</code>, this can sound daunting, but it isn't. All it means is that PiPass code has been updated as well as the code on your system. All you have to decide is which code <strong>stays</strong>. Follow the instructions below to resolve this conflict.</p>
 <h2 id="resolving-merge-conflicts">Resolving Merge Conflicts</h2>
