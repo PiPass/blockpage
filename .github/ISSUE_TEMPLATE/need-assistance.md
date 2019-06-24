@@ -7,14 +7,14 @@ assignees: ''
 
 ---
 
-**Topic:**
+**Topic**
 General area of PiPass. For example, installation.
 
 **What have you already tried?**
 Please paste commands _exactly_ as they were executed. Be specific.
 
-**Additional context:**
+**Additional context**
 Fill this out with other relevant information. Optional.
 
-**Relevant logs or images:**
+**Relevant logs or images**
 Paste outputs of commands or logfiles here. For example, the output of the PiPass installer.
