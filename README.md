@@ -7,13 +7,13 @@
 PiPass is an extention to the Pi-Hole project which adds easy temporary unblocking functionality and a visually appealing blockpage. The whole project currently is written in PHP, so it will integrate very easily with your existing Pi-Hole system. The blockpage is very easy to use, presenting three distinct options, an automated, temporary unblock button among them.
 
 <p align="center">
-  <a href="https://https://apps.roen.us/pipass/blockpage.png"><img src="https://apps.roen.us/pipass/blockpage.png" width="75%" height="75%"></a><br/>
+  <a href="https://apps.roen.us/pipass/blockpage.png"><img src="https://apps.roen.us/pipass/blockpage.png" width="75%" height="75%"></a><br/>
   <strong>PiPass blockpage</strong><br />
 </p>
 
 Contributing
 ------
-Obviously, this is an open-source project. You may find problems in the code, in which I would strongly encourage you to create an issue, or if you're willing to solve it yourself, fork the repository and create a pull request. If you want a feature added, feel free to [create an issue](https://github.com/roenw/PiPass/issues).
+PiPass is an open-source project and relies on community support to stay alive. You may find problems in the code, in which I would strongly encourage you to create an issue, or if you're willing to solve it yourself, fork the repository and create a pull request. If you want a feature added, feel free to [create an issue](https://github.com/roenw/PiPass/issues).
 
 
 A list of known caveats is at the bottom of this document. If you'd like to contribute but don't know how, check there for some ideas.
