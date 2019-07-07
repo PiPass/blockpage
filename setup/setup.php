@@ -30,7 +30,7 @@ if (0 == posix_getuid()) {
 function preInstall() {
     exec("sudo rm setup.php.*");
     $cfm = __FILE__;
-    exec("sudo mv $cfm setup.php);
+    exec("sudo mv $cfm setup.php");
     echo "Please enter your web document root. (e.g. /var/www/html)\n";
     $handle = fopen ("php://stdin","r");
     $line = fgets($handle);
