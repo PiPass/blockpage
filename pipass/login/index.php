@@ -14,7 +14,7 @@ if(isset($_POST['username'])) {
     // Fill in values on POST (login attempt) so as to avoid errors being shown unnecessarily
     // These variables will be overwritten later in the code.
 
-    //$GLOBALS["pwIncorrect"] = null;
+    $GLOBALS["pwIncorrect"] = null;
 
     authenticate($_POST['username'], $_POST['password']);
 }
@@ -41,14 +41,16 @@ function authenticate($username, $password) {
         restore_error_handler();
     } catch(Exception $e) {
         // The user specified does not exist
+        // This block of code is necessary to prevent PHP from throwing 500 Internal
+        // server error if the user does not exist.
         $GLOBALS["userexists"] = false;
     }
-
-    $GLOBALS["pwIncorrect"] = false;
 
     if(password_verify($password, $userPwHash)) {
         $_SESSION["username"] = $username;
         header("Location: ../manage/");
+    } else {
+        $GLOBALS["pwIncorrect"] = true;
     }
 }
 
@@ -83,8 +85,7 @@ function authenticate($username, $password) {
                             <input type="password" name="password" class="form-control input-lg" id="password" placeholder="Password">
                             <?php
                                 if(isset($_POST['username'])) {
-                                    if($GLOBALS["pwIncorrect"] == 1222 || empty($_POST["password"])) {
-                                        echo "PW Incorrect: ".$GLOBALS["pwIncorrect"];
+                                    if($GLOBALS["pwIncorrect"] === true) {
                                         echo "<p style='color:red;margin-top:2%;'>The username and password did not match. Please try again.</p>";
                                     }
                                 }
