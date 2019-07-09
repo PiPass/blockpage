@@ -2,7 +2,7 @@
 session_start();
 
 ini_set('display_errors', 1);
-$dbLocation = "/opt/pipass/pipass-DB.db";
+$dbLocation = "/opt/pipass/adminpanel.db";
 
 // Check if we can connect to the database. If not, kill the program with an error message
 
@@ -20,7 +20,7 @@ if(isset($_POST['username'])) {
 }
 
 function authenticate($username, $password) {
-    $sqlite = new PDO('sqlite:/opt/pipass/pipass-DB.db');
+    $sqlite = new PDO("sqlite:".$GLOBALS["dbLocation"]);
     $userInfo = $sqlite->query("SELECT * FROM USERS WHERE USERNAME = '$username'");
     $DBQueryArray = $userInfo->fetchAll();
 

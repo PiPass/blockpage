@@ -75,17 +75,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <title>PiPass Administration</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="../bower_components/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
-  <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="../dist/css/skins/skin-blue.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -175,7 +175,7 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/pipass-arrow.jpg" class="img-circle">
+          <img src="../dist/img/pipass-arrow.jpg" class="img-circle">
         </div>
         <div class="pull-left info">
           <p><?php echo $firstname." ".$lastname; ?></p>
@@ -206,10 +206,10 @@ EOL;
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">PAGES</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-        <li><a href="requests"><i class="fa fa-check"></i> <span>Requests</span></a></li>
-        <li><a href="users"><i class="fa fa-users"></i> <span>Users</span></a></li>
-        <li><a href="settings"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
+        <li><a href=".."><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+        <li><a href="../requests"><i class="fa fa-check"></i> <span>Requests</span></a></li>
+        <li><a href="../users"><i class="fa fa-users"></i> <span>Users</span></a></li>
+        <li class="active"><a><i class="fa fa-cog"></i> <span>Settings</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -221,7 +221,7 @@ EOL;
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        PiPass Administration - Dashboard
+        PiPass Administration - System Settings
       </h1>
     </section>
 
@@ -248,11 +248,11 @@ EOL;
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery 3 -->
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
+<script src="../dist/js/adminlte.min.js"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
