@@ -1,5 +1,5 @@
 <?php
-require('../../config.php');
+require('../../common/config.php');
 
 $usrLanguage = $conf['language'];
 require("../../locale/locale-$usrLanguage.php");

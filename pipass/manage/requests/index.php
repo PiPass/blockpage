@@ -157,7 +157,7 @@ desired effect
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-right">
-                  <a href="../login/deauth.php" class="btn btn-default btn-flat">Logout</a>
+                  <a href="../../login/deauth.php" class="btn btn-default btn-flat">Logout</a>
                 </div>
               </li>
             </ul>
@@ -221,7 +221,7 @@ EOL;
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        PiPass Administration - Requests
+        Manage Unblock Requests
       </h1>
     </section>
 

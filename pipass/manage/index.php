@@ -3,7 +3,7 @@ session_start();
 
 if(!$_SESSION) {
   header("Location: needlogin.html");
-  die("User not logged in.");
+  die("Application exited due to catched error: User not logged in.");
 }
 
 // User is logged in, grab user information and store it in variables.
@@ -221,7 +221,7 @@ EOL;
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        PiPass Administration - Dashboard
+        PiPass Administration Dashboard
       </h1>
     </section>
 
@@ -231,6 +231,30 @@ EOL;
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
+
+      <?php
+      $actionsRequired = false;
+
+      // Is the user using a default password? If yes, display an alert prompting them to change it immediately.
+      if($DBQueryArray[0][5] === "$2y$10$1ghXydJQx098e11Bd3tFiOPaksVd0iru0jm/fiQeslne.N92ksCuC") {
+        $actionsRequired = true;
+
+        echo <<<EOL
+        <style>
+          .callout p {
+            font-size: 16px;
+          }
+        </style>
+        <div class="callout callout-danger lead">
+          <h4>Default Password Warning</h4>
+          <p>
+            Looks like you're still using the default PiPass super administrator password. This can be a security risk if the PiPass panel is open to the internet or if you are using your
+            Pi-Hole as a parental controls device.
+          </p>
+        </div>
+EOL;
+      }
+      ?>
 
     </section>
     <!-- /.content -->
