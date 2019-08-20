@@ -79,14 +79,12 @@ function update() {
 
     $latestVersion = get_data("https://apps.roen.us/pipass/currentversion/");
 
-    echo "Collecting files for latest version v$latestVersion.\n";
-    exec("cd $drf_local && sudo git add config.php blockpage/ locale/ README.md setup/");
-    echo "Configuring local git profile";
-    exec('git config user.email "pipass@example.com"');
-    exec('git config user.name "PiPass User"');
-    exec("cd $drf_local && sudo git pull --rebase origin v$latestVersion");
-    echo "Merging local changes with latest version (using git merge) \n";
-    echo "Merged local changes.\n";
+    echo "Stashing your local changes\n";
+    exec("cd $drf_local && sudo git stash");
+    echo "Saved local changes. Collecting files for latest version v$latestVersion.\n";
+    exec("cd $drf_lcoal && sudo git fetch");
+    echo "Applying update...";
+    exec("cd $drf_lcoal && sudo git rebase --onto v$latestVersion origin/master");
     echo "\033[01;32m\n Update successful! You are now running PiPass v$latestVersion.\033[0m\n";
 }
 ?>
