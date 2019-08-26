@@ -26,11 +26,7 @@ Prerequisites
 * SSL certificate for your Pi-Hole (self signed is ok) 
 * PHP-CURL to check for new versions (``sudo apt update && sudo apt install php7.0-curl``)
 Root (sudo) access to Pi-Hole
-* Git (if this isn't installed yet, use ``sudo apt-get install wget git-core``)
-* Knowledge of location of webroot (normaly this can be found under /var/www/html/)
-* Webroot folder without any index files (e.g. no index.php/index.html/etc.)
-* Knowledge of which user PHP is running as
-* Optional, will improve functionality: Domain or subdomain linked to your Pi-Hole
+* Empty webroot - cannot contain index.html, index.php, etc.
 
 Install
 ------
