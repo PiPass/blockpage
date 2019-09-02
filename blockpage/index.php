@@ -6,7 +6,7 @@ require("../locale/locale-$usrLanguage.php");
 
 if(isset($_GET['url'])) {
   $url = htmlentities($_GET['url'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
-  $GLOBALS['url'] = htmlentities($_GET['url'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+  $GLOBALS['url'] = $_GET['url'];
   $url_provided = true;
 } else {
   $url_provided = false;
