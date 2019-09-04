@@ -32,6 +32,8 @@ Install
 ------
 Installation on a vanilla Pi-Hole is completely automated. Execute ``bash <(wget -qO- https://kubrick.roen.us/pipass/scripts/install.sh)`` to install.
 
+Please don't spam the installation script lots of times per minute!! The server has a firewall and might block your connection, if that happens, please email me if it doesn't unblock by itself.
+
 If you have a more complex installation (e.g. using ``NGiNX`` as a webserver), follow these steps below.
 
 1. Make your webserver redirect all 404 errors to the webroot. If you use ``lighttpd``, this function is automated.
