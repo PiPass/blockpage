@@ -11,28 +11,16 @@ PiPass is an extention to the Pi-Hole project which adds easy temporary unblocki
   <strong>PiPass blockpage</strong><br />
 </p>
 
-Contributing
-------
-PiPass is an open-source project and relies on community support to stay alive. You may find problems in the code, in which I would strongly encourage you to create an issue, or if you're willing to solve it yourself, fork the repository and create a pull request. If you want a feature added, feel free to [create an issue](https://github.com/roenw/PiPass/issues).
-
-
-A list of known caveats is at the bottom of this document. If you'd like to contribute but don't know how, check there for some ideas.
-
 Prerequisites
 ------
-* Pi-Hole server
-  * Includes webserver and PHP already installed & configured (confirmed working on PHP version 7.3)
-* SSH or direct terminal access
-* SSL certificate for your Pi-Hole (self signed is ok) 
-* PHP-CURL to check for new versions (``sudo apt update && sudo apt install php7.0-curl``)
-Root (sudo) access to Pi-Hole
+* Pi-Hole
+* Root (sudo) access to system
+* php-curl plugin, used to check for new versions of PiPass.
 * Empty webroot - cannot contain index.html, index.php, etc.
 
 Install
 ------
-Installation on a vanilla Pi-Hole is completely automated. Execute ``bash <(wget -qO- https://kubrick.roen.us/pipass/scripts/install.sh)`` to install.
-
-Please don't spam the installation script lots of times per minute!! The server has a firewall and might block your connection, if that happens, please email me if it doesn't unblock by itself.
+Installation on a vanilla Pi-Hole is completely automated. Execute ``bash <(wget -qO- https://kubrick.roen.us/pipass/scripts/install.sh)`` to install, and you should be done.
 
 If you have a more complex installation (e.g. using ``NGiNX`` as a webserver), follow these steps below.
 
@@ -51,6 +39,13 @@ For ``NGiNX``, this is
 
 4. Optional: fill out the ``config.php`` configuration file.
 
+Contributing
+------
+PiPass is an open-source project and relies on community support to stay alive. You may find problems in the code, in which I would strongly encourage you to create an issue, or if you're willing to solve it yourself, fork the repository and create a pull request. If you want a feature added, feel free to [create an issue](https://github.com/roenw/PiPass/issues).
+
+
+A list of known caveats is at the bottom of this document. If you'd like to contribute but don't know how, check there for some ideas.
+
 Support
 ------
 Having problems? [Let me know.](https://github.com/roenw/PiPass/issues)
@@ -60,11 +55,11 @@ Pull requests are welcome!
 Known Caveats
 ------
 * Requires webroot index
-* Does not work on websites with HSTS header cached :(
+* Will not work on websites supporting HSTS without a trusted self-signed certificate
 
 
 Future Ideas
 ------
 * Ability to trigger permanent whitelist after password entry
-* Admin console for PiPass (currently in the works)
+* Admin console for PiPass (currently being worked on)
 * apt repository/package and Docker image
