@@ -35,7 +35,7 @@ For ``NGiNX``, this is
         }
 ```
 
-3. ``bash <(wget -qO- https://kubrick.roen.us/pipass/scripts/install.sh)`` - You may be prompted for elevated permissions using ``sudo``.
+3. ``bash <(wget -qO- https://galileo.roen.us/pipass/scripts/install.sh)`` - You may be prompted for elevated permissions using ``sudo``.
 
 4. Optional: fill out the ``config.php`` configuration file.
 
