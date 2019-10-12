@@ -20,7 +20,7 @@ Prerequisites
 
 Install
 ------
-Installation on a vanilla Pi-Hole is completely automated. Execute ``bash <(wget -qO- https://kubrick.roen.us/pipass/scripts/install.sh)`` to install, and you should be done.
+Installation on a vanilla Pi-Hole is completely automated. Execute ``bash <(wget -qO- https://galileo.roen.us/pipass/scripts/install.sh)`` to install, and you should be done.
 
 If you have a more complex installation (e.g. using ``NGiNX`` as a webserver), follow these steps below.
 
