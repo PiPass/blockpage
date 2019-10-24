@@ -20,7 +20,7 @@ Prerequisites
 
 Install
 ------
-Installation on a vanilla Pi-Hole is completely automated. Execute ``bash <(wget -qO- https://galileo.roen.us/pipass/scripts/install.sh)`` to install, and you should be done.
+Installation on a vanilla Pi-Hole is completely automated. Execute ``bash <(wget -qO- https://sputnik.roen.us/pipass/scripts/install.sh)`` to install, and you should be done.
 
 If you have a more complex installation (e.g. using ``NGiNX`` as a webserver), follow these steps below.
 
@@ -35,7 +35,7 @@ For ``NGiNX``, this is
         }
 ```
 
-3. ``bash <(wget -qO- https://galileo.roen.us/pipass/scripts/install.sh)`` - You may be prompted for elevated permissions using ``sudo``.
+3. ``bash <(wget -qO- https://sputnik.roen.us/pipass/scripts/install.sh)`` - You may be prompted for elevated permissions using ``sudo``.
 
 4. Optional: fill out the ``config.php`` configuration file.
 
