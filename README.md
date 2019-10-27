@@ -20,7 +20,7 @@ Prerequisites
 
 Install
 ------
-Installation on a vanilla Pi-Hole is completely automated. Execute ``bash <(wget -qO- https://sputnik.roen.us/pipass/scripts/install.sh)`` to install, and you should be done.
+Installation on a vanilla Pi-Hole is completely automated. Execute ``bash <(wget -qO- https://sputnik.roen.us/pipass/scripts/install.sh)`` to install, and you should be done. Please make sure you have php-curl installed before running the install. Install it by executing ``sudo apt update && sudo apt install -y php-curl``.
 
 If you have a more complex installation (e.g. using ``NGiNX`` as a webserver), follow these steps below.
 
