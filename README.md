@@ -50,6 +50,8 @@ Support
 ------
 Having problems? [Let me know.](https://github.com/roenw/PiPass/issues)
 
+**Do not ask questions in Pi-Hole communities as PiPass is a separate project.**
+
 Pull requests are welcome!
 
 Known Caveats
