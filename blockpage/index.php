@@ -1,5 +1,9 @@
 <?php
-require('../config.php');
+if(file_exists('../config.php')) {
+    require('../config.php');
+} else {
+    require('../config-sample.php');
+}
 
 $usrLanguage = $conf['language'];
 require("../locale/locale-$usrLanguage.php");
@@ -105,7 +109,12 @@ EOL;
             <strong><?php echo $URLDescriptor; ?> </strong><?php if($url_provided) { echo $url; } else { echo "Unknown"; } ?>
             <hr>
             <button onclick='window.location="<?php echo $safeurl; ?>";' type="button" class="btn btn-success btn-lg btn-block"><?php echo $safeButton ?></button>
-            <button onclick='window.location="mailto:<?php echo $adminemail; ?>?Subject=Unblock%20Request";' type="button" class="btn btn-primary btn-lg btn-block"><?php echo $requestUnblockButton; ?></button>
+            <button onclick='window.location="" +
+                    "mailto:<?php echo $adminemail; ?>?subject=Website Unblock Request&body=You can use this email to request the administrator to unblock a website. The first two fields have already been filled out for you.\n"+
+                    "%0D%0A%0D%0A"+
+                    "Requesting IP address: <?php echo $_SERVER['REMOTE_ADDR']; ?>%0D%0A"+
+                    "Requested website: <?php echo $url; ?>%0D%0A"+
+                    "Reason for unblock: ";' type="button" class="btn btn-primary btn-lg btn-block"><?php echo $requestUnblockButton; ?></button>
             <form action="<?php echo $conf['unblock_url']; ?>">
               <input type="hidden" name="url" value="<?php echo $url; ?>">
               <input type="hidden" name="unblock" value="true">
@@ -135,13 +144,13 @@ EOL;
                 return $data;
               }
 
-              $latestVersion = get_data("https://apps.roen.us/pipass/currentversion/");
+              $latestVersion = get_data("https://raw.githubusercontent.com/PiPass/bin/master/currentversion");
               
               if($latestVersion != $conf['pipass_v']) {
                 echo <<<EOL
                 <br />
                 <br />
-                <a href="https://github.com/roenw/pipass/releases/" class="badge badge-info">$updateAvailMsg</a>
+                <a href="https://github.com/PiPass/blockpage/releases/" class="badge badge-info">$updateAvailMsg</a>
 EOL;
               } else {
                 echo <<<EOL

@@ -1,6 +1,9 @@
 <?php
-require('../../config.php');
-
+if(file_exists('../config.php')) {
+    require('../config.php');
+} else {
+    require('../config-sample.php');
+}
 $usrLanguage = $conf['language'];
 require("../../locale/locale-$usrLanguage.php");
 
