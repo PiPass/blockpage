@@ -23,11 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb2f4c99-b719-4ef9-bb0c-364157986223" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blockpage/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/blockpage/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blockpage/unblock-exec/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/blockpage/unblock/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-sample.php" beforeDir="false" afterPath="$PROJECT_DIR$/config-sample.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockpage/unblock/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/blockpage/unblock/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +63,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1599772010427</updated>
-      <workItem from="1599772012179" duration="5828000" />
+      <workItem from="1599772012179" duration="6604000" />
     </task>
     <servers />
   </component>

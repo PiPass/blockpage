@@ -36,8 +36,6 @@ if(isset($_GET['url'])) {
 <!doctype html>
 <html lang="en">
   <head>
-  <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
-
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -76,36 +74,7 @@ if(isset($_GET['url'])) {
               width: 100%;
           }
         }
-
-        .toast {
-          margin-bottom: 0.5%;
-        }
-
-        #toast-wrapper {
-          margin-top: 1%;
-          margin-right: 1%;
-        }
     </style>
-
-    <?php
-    // Unblocking function
-
-    if(isset($_GET['unblock'])) {
-      unblock();
-    }
-
-    function unblock() {
-      // Indicate to the user that we are trying to unblock the page
-
-      echo <<<EOL
-      <script>
-      jQuery(function(){
-        $('#requesting-toast').toast('show')
-      });
-      </script>
-EOL;
-    }
-    ?>
   </head>
   <body>
     <div class="container">
@@ -130,15 +99,15 @@ EOL;
             </form>
             <?php
 
-                    if($conf['show_tech_info'] == true) {
-                      echo <<<EOL
-                      <br />
-                      <br />
-                      <code style="color:gray">$technicalInfoHeader</code>
-                      <br />
-                      <code style="color:gray">$technicalInfoMsg</code>
+                if($conf['show_tech_info'] == true) {
+                  echo <<<EOL
+                  <br />
+                  <br />
+                  <code style="color:gray">$technicalInfoHeader</code>
+                  <br />
+                  <code style="color:gray">$technicalInfoMsg</code>
 EOL;
-                    }
+                }
             ?>
             <?php
               function get_data($url) {
@@ -171,30 +140,7 @@ EOL;
           </div>
         </div>
     </div>
-    <div aria-live="polite" aria-atomic="true" id="toast-wrapper" style="position: relative; min-height: 200px;">
-      <div aria-live="polite" aria-atomic="true">
-          <div class="toast" id="requesting-toast" style="position: absolute; top: 0; right: 0;" data-delay="20000">
-            <div class="toast-header">
-              <strong class="mr-auto">PiPass</strong>
-            </div>
-            <div class="toast-body">
-              <?php echo $bpToastRequestingStatus; ?>
-            </div>
-          </div>
-        </div>
-      <div aria-live="polite" aria-atomic="true">
-        <div class="toast" id="success-toast" style="position: absolute; top: 47%; right: 0;" data-delay="20000">
-            <div class="toast-header">
-              <strong class="mr-auto">PiPass</strong>
-            </div>
-            <div class="toast-body">
-              <?php echo $bpToastSuccessStatus; ?>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!--- $('#requesting-toast').toast('show') -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

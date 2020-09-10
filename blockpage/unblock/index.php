@@ -74,15 +74,6 @@ if(isset($_GET['url'])) {
             transform: translate(-50%, -50%);
             width: 95%;
         }
-
-        .toast {
-          margin-bottom: 0.5%;
-        }
-
-        #toast-wrapper {
-          margin-top: 1%;
-          margin-right: 1%;
-        }
     </style>
   </head>
   <body>
@@ -97,7 +88,7 @@ if(isset($_GET['url'])) {
         <br />
         <strong>$URLDescriptor </strong>$url
         <hr>
-        <form id="intersittialUnblock" method="GET">
+        <form id="interstitialUnblock" method="GET">
         <input type="hidden" name="unblockurl" value="$url">
         <input type="hidden" name="url" value="$url">
         <input type="hidden" name="unblock" value="unblocked">
@@ -142,30 +133,7 @@ EOL;
     ?>
         </div>
     </div>
-    <div aria-live="polite" aria-atomic="true" id="toastwrapper" style="position: relative; min-height: 200px;">
-      <div aria-live="polite" aria-atomic="true">
-          <div class="toast" id="requesting-toast" style="position: absolute; top: 0; right: 0;" data-delay="20000">
-            <div class="toast-header">
-              <strong class="mr-auto">PiPass</strong>
-            </div>
-            <div class="toast-body">
-              <?php echo $bpToastRequestingStatus; ?>
-            </div>
-          </div>
-        </div>
-      <div aria-live="polite" aria-atomic="true">
-        <div class="toast" id="success-toast" style="position: absolute; top: 65%; right: 0;" data-delay="20000">
-            <div class="toast-header">
-              <strong class="mr-auto">PiPass</strong>
-            </div>
-            <div class="toast-body">
-            <?php echo $bpToastSuccessStatus; ?>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!--- $('#requesting-toast').toast('show') -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -178,22 +146,11 @@ EOL;
 
     if($_GET['unblock'] == "unblocked") {
       unblock();
-      echo <<<EOL
-      <script>
-      jQuery(function(){
-        $('#requesting-toast').toast('show')
-        $('#success-toast').toast('show')
-      });
-      </script>
-EOL;
     } else if($_GET['unblock'] == "true") {
       sleep(1);
       echo <<<EOL
       <script>
-      jQuery(function(){
-        $('#requesting-toast').toast('show')
-      });
-      setTimeout(function() {document.getElementById('intersittialUnblock').submit();}, 5000);
+      setTimeout(function() {document.getElementById('interstitialUnblock').submit();}, 5000);
       </script>
 EOL;
     }
