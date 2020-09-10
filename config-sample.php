@@ -37,12 +37,12 @@ $conf['show_tech_info'] = get_config('show_tech_info', true);
 $conf['blockpage_url'] = get_config('blockpage_url', "blockpage/index.php");
 // The URL (not directory) of your blockpage. Setting this incorrectly can
 // lead to SSL certificate SAN errors, which prompt the user that the
-// connection is "not secure." It's highly reccomended that you change this.
+// connection is "not secure." It's highly recommended that you change this.
 // Example: "https://example.com/blockpage/"
 
-$conf['unblock_url'] = get_config('unblock-url', "unblock-exec");
+$conf['unblock_url'] = get_config('unblock-url', "unblock");
 // In most cases this does not have to be changed. Only change it if your
-// unblock page resides in a subpath which is not "unblock-exec"
+// unblock page resides in a sub-path which is not "unblock"
 
 $conf['safeurl'] = get_config('safeurl', "about:home");
 // Enter a URL of your choice to go to when a user clicks "back to safety"
