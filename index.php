@@ -1,5 +1,9 @@
 <?php
-require('config.php');
+if(file_exists('config.php')) {
+    require('config.php');
+} else {
+    require('config-sample.php');
+}
 
 $url =  "{$_SERVER['HTTP_HOST']}";
 $bpLocal = $conf['blockpage_url'];

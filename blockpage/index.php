@@ -3,22 +3,33 @@ if(file_exists('../config.php')) {
     require('../config.php');
 } else {
     require('../config-sample.php');
+    echo "WARNING: Currently using config-sample.php. Please make a local copy called config.php to clear this warning.";
 }
 
 $usrLanguage = $conf['language'];
 require("../locale/locale-$usrLanguage.php");
 
 if(isset($_GET['url'])) {
-  $url = htmlentities($_GET['url'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
-  $GLOBALS['url'] = $_GET['url'];
+    if(strpos($_GET['url'], ':') !== false) {
+        // Strip port out of DNS name since PiHole does not deal with ports
+        $url = substr($_GET['url'], 0, strpos($_GET['url'], ":"));
+
+        // After stripping out port, then we sanitize/escape the input before doing anything with it
+        $url = htmlentities($url, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    } else {
+        // There is no port number so we go straight to sanitizing the user input
+        $url = htmlentities($_GET['url'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    }
+
   $url_provided = true;
+
+    if($url == $server_ip) {
+        $url = null;
+        $url_provided = false;
+    }
 } else {
   $url_provided = false;
-}
-
-if($url == $server_ip) {
   $url = null;
-  $url_provided = false;
 }
 ?>
 
@@ -61,11 +72,8 @@ if($url == $server_ip) {
 
         @media(max-width:629px) {
           #alert {
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 3%;
-            margin-bottom: 3%;
-            width: 100%;
+              margin: 3% auto;
+              width: 100%;
           }
         }
 
@@ -73,7 +81,7 @@ if($url == $server_ip) {
           margin-bottom: 0.5%;
         }
 
-        #toastwrapper {
+        #toast-wrapper {
           margin-top: 1%;
           margin-right: 1%;
         }
@@ -163,7 +171,7 @@ EOL;
           </div>
         </div>
     </div>
-    <div aria-live="polite" aria-atomic="true" id="toastwrapper" style="position: relative; min-height: 200px;">
+    <div aria-live="polite" aria-atomic="true" id="toast-wrapper" style="position: relative; min-height: 200px;">
       <div aria-live="polite" aria-atomic="true">
           <div class="toast" id="requesting-toast" style="position: absolute; top: 0; right: 0;" data-delay="20000">
             <div class="toast-header">

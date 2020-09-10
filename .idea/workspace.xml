@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fb2f4c99-b719-4ef9-bb0c-364157986223" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockpage/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/blockpage/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockpage/unblock-exec/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/blockpage/unblock-exec/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
+    <include_path>
+      <path value="$PROJECT_DIR$" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1hKuGWqW2q9DO5XfZhTom1r6mdf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../xampp/php/php.exe" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fb2f4c99-b719-4ef9-bb0c-364157986223" name="Default Changelist" comment="" />
+      <created>1599772010427</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1599772010427</updated>
+      <workItem from="1599772012179" duration="4392000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="980" y="342" key="#CLI_Interpreters" timestamp="1599772305709">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="980" y="342" key="#CLI_Interpreters/0.0.2560.1400@0.0.2560.1400" timestamp="1599772305709" />
+    <state x="1180" y="442" key="FileChooserDialogImpl" timestamp="1599772302379">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1180" y="442" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1599772302379" />
+    <state x="121" y="124" width="1318" height="711" key="SettingsEditor" timestamp="1599776977892">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="121" y="124" width="1318" height="711" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1599776977892" />
+    <state x="917" y="367" width="672" height="678" key="search.everywhere.popup" timestamp="1599774339797">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="917" y="367" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1599774339797" />
+  </component>
+</project>
