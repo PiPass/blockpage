@@ -1,12 +1,11 @@
 <?php
-require('../version.php');
-
 $hostname = gethostname();
 $server_ip = $_SERVER['SERVER_ADDR'];
 $date = $conf['date'];
 $safeurl = $conf['safeurl'];
 $adminemail = $conf['adminemail'];
 $unblockLength = date('H:i:s', mktime(0, 0, $conf['unblock_seconds']));
+$pipass_version = $conf['pipass_version'];
 
 // LOCALE FILE FOR LANGUAGE: "SLOVENIAN"
 // ------------------------------------------------
@@ -33,7 +32,7 @@ $URLDescriptor = "URL blokirane strani: ";
 
 $technicalInfoHeader = "TEHNIČNI PODATKI:";
 
-$technicalInfoMsg = "Javil $hostname ($server_ip) ob $date. Uporablja PiPass verzijo $version.";
+$technicalInfoMsg = "Javil $hostname ($server_ip) ob $date. Uporablja PiPass verzijo $pipass_version.";
 
 $bpToastRequestingStatus = "Poteka zahteva za začasen dostop. Ne osvežite strani, to lahko traja nekaj sekund.";
 

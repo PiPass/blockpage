@@ -1,12 +1,11 @@
 <?php
-require('../version.php');
-
 $hostname = gethostname();
 $server_ip = $_SERVER['SERVER_ADDR'];
 $date = $conf['date'];
 $safeurl = $conf['safeurl'];
 $adminemail = $conf['adminemail'];
 $unblockLength = date('H:i:s', mktime(0, 0, $conf['unblock_seconds']));
+$pipass_version = $conf['pipass_version'];
 
 // LOCALE FILE FOR LANGUAGE: "ITALIANO"
 // ------------------------------------------------
@@ -34,7 +33,7 @@ $URLDescriptor = "URL bloccato: ";
 
 $technicalInfoHeader = "INFORMAZIONI TECNICHE:";
 
-$technicalInfoMsg = "Segnalato da $hostname ($server_ip) il $date. La versione di PiPass in uso &egrave; la $version.";
+$technicalInfoMsg = "Segnalato da $hostname ($server_ip) il $date. La versione di PiPass in uso &egrave; la $pipass_version.";
 
 $bpToastRequestingStatus = "Requesting temporary unblock from the server. Do not reload the page, this may take a few seconds.";
 

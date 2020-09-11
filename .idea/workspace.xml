@@ -24,8 +24,16 @@
   <component name="ChangeListManager">
     <list default="true" id="fb2f4c99-b719-4ef9-bb0c-364157986223" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockpage/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/blockpage/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blockpage/unblock/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/blockpage/unblock/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-sample.php" beforeDir="false" afterPath="$PROJECT_DIR$/config-sample.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-sample.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locale/locale-de.php" beforeDir="false" afterPath="$PROJECT_DIR$/locale/locale-de.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locale/locale-en.php" beforeDir="false" afterPath="$PROJECT_DIR$/locale/locale-en.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locale/locale-it.php" beforeDir="false" afterPath="$PROJECT_DIR$/locale/locale-it.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locale/locale-nl.php" beforeDir="false" afterPath="$PROJECT_DIR$/locale/locale-nl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locale/locale-sl.php" beforeDir="false" afterPath="$PROJECT_DIR$/locale/locale-sl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/version.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +72,8 @@
       <option name="presentableId" value="Default" />
       <updated>1599772010427</updated>
       <workItem from="1599772012179" duration="6604000" />
-      <workItem from="1599782142665" duration="1525000" />
+      <workItem from="1599782142665" duration="1565000" />
+      <workItem from="1599806213742" duration="793000" />
     </task>
     <servers />
   </component>
@@ -88,13 +97,18 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="980" y="342" key="#CLI_Interpreters/0.0.2560.1400@0.0.2560.1400" timestamp="1599772305709" />
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599806864234">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599806864234" />
     <state x="1180" y="442" key="FileChooserDialogImpl" timestamp="1599772302379">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1180" y="442" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1599772302379" />
-    <state x="121" y="124" width="1318" height="711" key="SettingsEditor" timestamp="1599776977892">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="91" y="92" width="989" height="708" key="SettingsEditor" timestamp="1599806977964">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="91" y="92" width="989" height="708" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1599806977964" />
     <state x="121" y="124" width="1318" height="711" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1599776977892" />
     <state x="917" y="367" width="672" height="678" key="search.everywhere.popup" timestamp="1599774339797">
       <screen x="0" y="0" width="2560" height="1400" />

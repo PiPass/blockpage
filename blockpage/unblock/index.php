@@ -1,10 +1,5 @@
 <?php
-if(file_exists('../../config.php')) {
-    require('../../config.php');
-} else {
-    require('../../config-sample.php');
-    echo "WARNING: Currently using the sample configuration file. Please make a local copy called config.php to clear this warning.";
-}
+require('../../config.php');
 
 $usrLanguage = $conf['language'];
 require("../../locale/locale-$usrLanguage.php");

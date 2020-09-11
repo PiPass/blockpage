@@ -1,12 +1,11 @@
 <?php
-require('../version.php');
-
 $hostname = gethostname();
 $server_ip = $_SERVER['SERVER_ADDR']; 
 $date = $conf['date'];
 $safeurl = $conf['safeurl'];
 $adminemail = $conf['adminemail'];
 $unblockLength = date('H:i:s', mktime(0, 0, $conf['unblock_seconds']));
+$pipass_version = $conf['pipass_version'];
 
 // GEBIETSSCHEMA FÜR FOLGENDE SPRACHE: "DEUTSCH"
 // ------------------------------------------------
@@ -34,7 +33,7 @@ $URLDescriptor = "Gesperrte URL: ";
 
 $technicalInfoHeader = "TECHNISCHE INFO:";
 
-$technicalInfoMsg = "Berichtet von $hostname ($server_ip) am $date. Laufende PiPass Version $version.";
+$technicalInfoMsg = "Berichtet von $hostname ($server_ip) am $date. Laufende PiPass Version $pipass_version.";
 
 $bpToastRequestingStatus = "Fordere temporäre Freigabe vom Server an. Bitte laden Sie die Seite nicht neu, es könnte einige Sekunden dauern.";
 

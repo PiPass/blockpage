@@ -1,12 +1,11 @@
 <?php
-require('../version.php');
-
 $hostname = gethostname();
 $server_ip = $_SERVER['SERVER_ADDR']; 
 $date = $conf['date'];
 $safeurl = $conf['safeurl'];
 $adminemail = $conf['adminemail'];
 $unblockLength = date('H:i:s', mktime(0, 0, $conf['unblock_seconds']));
+$pipass_version = $conf['pipass_version'];
 
 // LOCALE FILE FOR LANGUAGE: "DUTCH"
 // ------------------------------------------------
@@ -34,7 +33,7 @@ $URLDescriptor = "URL op de blacklist: ";
 
 $technicalInfoHeader = "TECHNISCHE INFO:";
 
-$technicalInfoMsg = "Gerapporteerd door $hostname ($server_ip) op $date. PiPass versie $version.";
+$technicalInfoMsg = "Gerapporteerd door $hostname ($server_ip) op $date. PiPass versie $pipass_version.";
 
 $bpToastRequestingStatus = "Blokkade tijdelijk omzeilen wordt aangevraagd. Laad de pagina niet opnieuw, dit kan enkele seconden duren.";
 
