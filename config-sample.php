@@ -44,7 +44,7 @@ $conf['unblock_url'] = get_config('unblock-url', "unblock");
 // In most cases this does not have to be changed. Only change it if your
 // unblock page resides in a sub-path which is not "unblock"
 
-$conf['safeurl'] = get_config('safeurl', "about:home");
+$conf['safeurl'] = get_config('safeurl', "about:blank");
 // Enter a URL of your choice to go to when a user clicks "back to safety"
 // This should not be a directory.
 

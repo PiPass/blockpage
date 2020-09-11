@@ -151,7 +151,7 @@ EOL;
       sleep(1);
       echo <<<EOL
       <script>
-      setTimeout(function() {document.getElementById('interstitialUnblock').submit();}, 5000);
+      setTimeout(function() {document.getElementById('interstitialUnblock').submit();}, 1000);
       </script>
 EOL;
     }
