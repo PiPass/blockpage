@@ -1,7 +1,8 @@
 <?php
+require('../version.php');
+
 $hostname = gethostname();
 $server_ip = $_SERVER['SERVER_ADDR']; 
-$pipass_v = $conf['pipass_v'];
 $date = $conf['date'];
 $safeurl = $conf['safeurl'];
 $adminemail = $conf['adminemail'];
@@ -33,7 +34,7 @@ $URLDescriptor = "Blacklisted URL: ";
 
 $technicalInfoHeader = "TECHNICAL INFO:";
 
-$technicalInfoMsg = "Reported by $hostname ($server_ip) at $date. Running PiPass version $pipass_v.";
+$technicalInfoMsg = "Reported by $hostname ($server_ip) at $date. Running PiPass version $version.";
 
 $bpToastRequestingStatus = "Requesting temporary unblock from the server. Do not reload the page, this may take a few seconds.";
 

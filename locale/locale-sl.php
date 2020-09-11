@@ -1,7 +1,8 @@
 <?php
+require('../version.php');
+
 $hostname = gethostname();
 $server_ip = $_SERVER['SERVER_ADDR'];
-$pipass_v = $conf['pipass_v'];
 $date = $conf['date'];
 $safeurl = $conf['safeurl'];
 $adminemail = $conf['adminemail'];
@@ -32,7 +33,7 @@ $URLDescriptor = "URL blokirane strani: ";
 
 $technicalInfoHeader = "TEHNIČNI PODATKI:";
 
-$technicalInfoMsg = "Javil $hostname ($server_ip) ob $date. Uporablja PiPass verzijo $pipass_v.";
+$technicalInfoMsg = "Javil $hostname ($server_ip) ob $date. Uporablja PiPass verzijo $version.";
 
 $bpToastRequestingStatus = "Poteka zahteva za začasen dostop. Ne osvežite strani, to lahko traja nekaj sekund.";
 

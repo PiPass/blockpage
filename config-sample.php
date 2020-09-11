@@ -28,7 +28,7 @@ function get_config($section, $defaultValue) {
 }
 
 $conf["language"] = get_config('language', "en");
-// Language to use in PiPass. Should be in IEFT language format.
+// Language to use in PiPass. Should be in IETF language format.
 
 $conf['show_tech_info'] = get_config('show_tech_info', true);
 // Should usually be set to true, unless you have specific reason to disable
@@ -60,8 +60,4 @@ $conf['date'] = date(get_config('date', 'm/d/Y h:i:s a'), time());
 $conf['unblock_seconds'] = get_config('unblock_seconds', 7200);
 // How many seconds to unblock a website for when a temporary unblock is
 // executed by a user.
-
-$conf['pipass_v'] = "1.3.5";
-// PiPass current version. Must be a NUMBER! Or else "update available" 
-// will be showing forever
 ?>

@@ -6,6 +6,8 @@ if(file_exists('../config.php')) {
     echo "WARNING: Currently using the sample configuration file. Please make a local copy called config.php to clear this warning.";
 }
 
+require('../version.php');
+
 $usrLanguage = $conf['language'];
 require("../locale/locale-$usrLanguage.php");
 
@@ -123,7 +125,7 @@ EOL;
 
               $latestVersion = get_data("https://raw.githubusercontent.com/PiPass/bin/master/currentversion");
               
-              if($latestVersion != $conf['pipass_v']) {
+              if($latestVersion >= $version) {
                 echo <<<EOL
                 <br />
                 <br />

@@ -1,7 +1,8 @@
 <?php
+require('../version.php');
+
 $hostname = gethostname();
 $server_ip = $_SERVER['SERVER_ADDR']; 
-$pipass_v = $conf['pipass_v'];
 $date = $conf['date'];
 $safeurl = $conf['safeurl'];
 $adminemail = $conf['adminemail'];
@@ -33,7 +34,7 @@ $URLDescriptor = "Gesperrte URL: ";
 
 $technicalInfoHeader = "TECHNISCHE INFO:";
 
-$technicalInfoMsg = "Berichtet von $hostname ($server_ip) am $date. Laufende PiPass Version $pipass_v.";
+$technicalInfoMsg = "Berichtet von $hostname ($server_ip) am $date. Laufende PiPass Version $version.";
 
 $bpToastRequestingStatus = "Fordere temporäre Freigabe vom Server an. Bitte laden Sie die Seite nicht neu, es könnte einige Sekunden dauern.";
 

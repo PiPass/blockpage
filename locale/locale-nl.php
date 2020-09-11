@@ -1,7 +1,8 @@
 <?php
+require('../version.php');
+
 $hostname = gethostname();
 $server_ip = $_SERVER['SERVER_ADDR']; 
-$pipass_v = $conf['pipass_v'];
 $date = $conf['date'];
 $safeurl = $conf['safeurl'];
 $adminemail = $conf['adminemail'];
@@ -33,7 +34,7 @@ $URLDescriptor = "URL op de blacklist: ";
 
 $technicalInfoHeader = "TECHNISCHE INFO:";
 
-$technicalInfoMsg = "Gerapporteerd door $hostname ($server_ip) op $date. PiPass versie $pipass_v.";
+$technicalInfoMsg = "Gerapporteerd door $hostname ($server_ip) op $date. PiPass versie $version.";
 
 $bpToastRequestingStatus = "Blokkade tijdelijk omzeilen wordt aangevraagd. Laad de pagina niet opnieuw, dit kan enkele seconden duren.";
 
